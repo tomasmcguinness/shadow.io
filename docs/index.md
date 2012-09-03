@@ -9,13 +9,12 @@ I have an idea for a service that can serve an individual directly. A user's U-S
 * Perform internet searches
 * Communicate with other people's U-Shadows to perform basic tasks
 	- Simplify file transfers between individuals
-	- Make appointments for lunch or drinks (negotiate the best times)
-	- 
-* Act as a point of trust or identity for an individual (using keys for encryption etc)
-
+	- Make appointments for lunch or drinks & negotiate the best times automatically
+	- Leave messages
+	- Establish trust or identity for an individual (using keys for encryption etc)
 
 Internet nodes
-
+==============
 An internet node could be provided by a city. The node would offer a range of services, populated by all the providers in a particular city e.g. news, taxis , food delivery, laundry etc.. On arrival in a new city, a user could "register" their presence and be made aware of the services on offer.
 
 Service Providers
