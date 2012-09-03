@@ -4,3 +4,6 @@ obj
 
 # mstest test results
 TestResults
+docs/.DS_Store
+
+.DS_Store
