@@ -1,0 +1,8 @@
+# Searching
+Today, when you search the internet, you’re not actually searching the internet. You’re actually asking a separate company to check their database. This company then returns you a list of pages that they think relate to your search. You see, internet searching is always done via an intermediate company. Examples being Google, Bing or Yahoo.
+These companies have vast fields of servers that are trawling the internet every second of every day and recording and indexing all the information you find. Without them, it would be impossible to search for information.
+## Is this bad?
+Yes. Centralised searching puts content behind somebody else’s filter. By sending the search to a single source, they decided what sites are relevant or irrelevant and can actually bury sites by never presenting them in the search results.
+This leads to interesting discussions about search engines being the gate-keepers of the internet. They control which sites are made visible and which aren’t.
+## Distributed searching
+Distributed searching is the idea that search requests aren’t handled by a single server or site, but rather are spread from site to site. Each site is responsible for processing the search request, building a set of results and sending them back to the sender. This gives each site an equal chance to participate in the search. 
