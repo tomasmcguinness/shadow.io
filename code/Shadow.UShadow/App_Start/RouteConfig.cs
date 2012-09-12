@@ -16,7 +16,7 @@ namespace Shadow.UShadow
 
       routes.MapHttpRoute(
           name: "DefaultApi",
-          routeTemplate: "api/{controller}/{id}",
+          routeTemplate: "{controller}/{id}",
           defaults: new { controller = "Root", id = RouteParameter.Optional }
       );
     }
