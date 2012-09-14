@@ -168,8 +168,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\imaybelateadmin - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\imaybelateadmin - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ushadow - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ushadow - Web Deploy.pubxml" />
   </ItemGroup>
