@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Raven.Client.Document;
+using Raven.Client.Embedded;
 
 namespace Shadow.UShadow.Data
 {
@@ -13,9 +14,9 @@ namespace Shadow.UShadow.Data
 
     public MessageRepository()
     {
-      documentStore = new DocumentStore()
+      documentStore = new EmbeddableDocumentStore()
       {
-        Url = "http://localhost/"
+        ConnectionStringName = "RavenDb"
       };
 
       documentStore.Initialize();
@@ -23,7 +24,19 @@ namespace Shadow.UShadow.Data
 
     public void SaveMessage(Message message)
     {
+      using (var session = documentStore.OpenSession())
+      {
+        session.Store(message);
+        session.SaveChanges();
+      }
+    }
 
+    public ICollection<Message> Get()
+    {
+      using (var session = documentStore.OpenSession())
+      {
+        return session.Query<Message>().ToList();
+      }
     }
   }
 }

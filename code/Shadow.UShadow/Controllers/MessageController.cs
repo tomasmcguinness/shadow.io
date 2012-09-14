@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 using Shadow.UShadow.Data;
 using Shadow.UShadow.Models;
@@ -17,9 +18,9 @@ namespace Shadow.UShadow.Controllers
       //
       MessageRepository rep = new MessageRepository();
 
-      //string body = message.Content as StringContent;
+      var content = message.Content.ReadAsStringAsync().Result;
 
-      //rep.SaveMessage(new Shadow.UShadow.Data.Message() { Body = body });
+      rep.SaveMessage(new Shadow.UShadow.Data.Message() { Body = content });
 
       return new HttpResponseMessage(HttpStatusCode.OK);
     }
@@ -27,12 +28,22 @@ namespace Shadow.UShadow.Controllers
     public void Put(string target, string message)
     {
 
-
     }
 
-    public ICollection<Shadow.UShadow.Models.Message> Get()
+    public HttpResponseMessage Get()
     {
-      return null;
+      MessageRepository rep = new MessageRepository();
+      List<UShadow.Models.Message> messages = new List<Models.Message>();
+
+      foreach (var message in rep.Get())
+      {
+        messages.Add(new Models.Message() { Body = message.Body });
+      }
+
+      return new HttpResponseMessage(HttpStatusCode.OK)
+      {
+        Content = new ObjectContent<ICollection<UShadow.Models.Message>>(messages, new JsonMediaTypeFormatter())
+      };
     }
   }
 }
