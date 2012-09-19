@@ -12,8 +12,6 @@ By differentiating between authorized and unautohirzed messages, the U-Shadow ca
 
 Another benefit is that messages could be rejected at source if there are too many outstanding. This would reduce the inbox overload by pushing back on the sender. The sender could then schedule redelivery if the message was of low priority.
 
-
-
 ## Interface ##
 
 To instruct your U-Shadow to send a message to another U-Shadow, a PUT must be sent. This contains the destination and the content of the message.

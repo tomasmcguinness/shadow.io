@@ -137,6 +137,7 @@
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\DiscoveryController.cs" />
     <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\NodeController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
@@ -170,6 +171,8 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\ushadow - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ushadow - Web Deploy.pubxml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shadow.UShadow.Data\Shadow.UShadow.Data.csproj">
