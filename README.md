@@ -28,5 +28,5 @@ A Cyber Node is nexus point of the internet. It could represent your home, a bar
 
 - Service discovery
 - Searching
-- Messaging
+- [Messaging](/docs/messaging.md)
 
