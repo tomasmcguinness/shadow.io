@@ -14,16 +14,17 @@ namespace Shadow.UShadow
     {
       routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-      routes.MapRoute(
-        name: "Default",
-        url: "Home/{action}/{id}",
-        defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
-
       routes.MapHttpRoute(
           name: "DefaultApi",
-          routeTemplate: "{controller}/{id}",
+          routeTemplate: "shadow/{controller}/{id}",
           defaults: new { controller = "Root", id = RouteParameter.Optional }
       );
+
+      routes.MapRoute(
+        name: "Default",
+        url: "{controller}/{action}/{id}",
+        defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+      
     }
   }
 }

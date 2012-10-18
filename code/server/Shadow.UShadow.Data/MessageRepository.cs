@@ -14,11 +14,7 @@ namespace Shadow.UShadow.Data
 
     public MessageRepository()
     {
-      documentStore = new EmbeddableDocumentStore()
-      {
-        ConnectionStringName = "RavenDb"
-      };
-
+      documentStore = new EmbeddableDocumentStore();
       documentStore.Initialize();
     }
 
