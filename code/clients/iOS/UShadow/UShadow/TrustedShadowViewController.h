@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TrustShadowViewController.h"
+#import <GameKit/GameKit.h>
 
 @interface TrustedShadowViewController : UITableViewController
 

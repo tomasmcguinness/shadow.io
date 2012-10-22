@@ -44,9 +44,12 @@
 
 - (void)openTrust
 {
-    TrustShadowViewController *trustDialog = [[TrustShadowViewController alloc] init];
-    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:trustDialog];
-    [self presentViewController:navCon animated:YES completion:nil];
+    //TrustShadowViewController *trustDialog = [[TrustShadowViewController alloc] init];
+    //UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:trustDialog];
+    //[self presentViewController:navCon animated:YES completion:nil];
+    
+    GKPeerPickerController *picker = [[GKPeerPickerController alloc] init];
+    [picker show];
 }
 
 #pragma mark - Table view data source
