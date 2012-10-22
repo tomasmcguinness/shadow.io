@@ -25,7 +25,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager startMonitoringSignificantLocationChanges];
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    
+    UITabBarController *rootTabBarController = [[UITabBarController alloc] init];
+    
+    TrustedShadowViewController *shadowController = [[TrustedShadowViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:shadowController];
+    navCon.tabBarItem.title = @"Shadows";
+    rootTabBarController.viewControllers = [NSArray arrayWithObject:navCon];
+    
+    self.window.rootViewController = rootTabBarController;
+    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -153,6 +168,65 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"Location Updated");
+//    UIApplication *app = [UIApplication sharedApplication];
+//    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+//        [app endBackgroundTask:bgTask];
+//        bgTask = UIBackgroundTaskInvalid;
+//    }];
+//    
+//    NSString *urlString = [NSString stringWithFormat:@"%@://%@/shadow/location?lat=%f&long=%f",
+//                           @"http",
+//                           @"ushadow.azurewebsites.net",
+//                           newLocation.coordinate.latitude,
+//                           newLocation.coordinate.longitude];
+//    
+//    NSURL *url = [NSURL URLWithString:urlString];
+//    NSMutableURLRequest *requestObj = [NSMutableURLRequest requestWithURL:url];
+//    [requestObj setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+//    [requestObj setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
+//    [requestObj setHTTPMethod:@"PUT"];
+//    
+//    NSLog(@"Requesting [%@]", urlString);
+//    
+//    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//    
+//    [NSURLConnection sendAsynchronousRequest:requestObj queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+//     {
+//         [queue release];
+//         NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
+//         
+//         if(error)
+//         {
+//             dispatch_async(dispatch_get_main_queue(), ^{
+//                 NSLog(@"Submit failed: %@", [error localizedDescription]);
+//             });
+//         }
+//         else
+//         {
+//             if(httpResp.statusCode == 200)
+//             {
+//                 //                 DLog(@"Commute saved!");
+//                 //                 dispatch_async(dispatch_get_main_queue(), ^{
+//                 //                     [self.delegate saveCommuteComplete];
+//                 //                 });
+//             }
+//             else
+//             {
+//                 dispatch_async(dispatch_get_main_queue(), ^{
+//                     NSLog(@"Submit failed: %@", [error localizedDescription]);
+//                 });
+//             }
+//         }
+//     }];
 }
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C10EC1C1635BD0600DEFEBD /* TrustedShadowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10EC1B1635BD0600DEFEBD /* TrustedShadowViewController.m */; };
+		2C10EC1F1635BE0300DEFEBD /* TrustShadowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10EC1E1635BE0300DEFEBD /* TrustShadowViewController.m */; };
 		2C2F6CD5160A30DD000E261B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD4160A30DD000E261B /* UIKit.framework */; };
 		2C2F6CD7160A30DD000E261B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD6160A30DD000E261B /* Foundation.framework */; };
 		2C2F6CD9160A30DD000E261B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD8160A30DD000E261B /* CoreGraphics.framework */; };
@@ -24,6 +26,8 @@
 		2C2F6CFB160A30DD000E261B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CDA160A30DD000E261B /* CoreData.framework */; };
 		2C2F6D03160A30DD000E261B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F6D01160A30DD000E261B /* InfoPlist.strings */; };
 		2C2F6D06160A30DD000E261B /* UShadowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F6D05160A30DD000E261B /* UShadowTests.m */; };
+		2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */; };
+		2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA0B50216314016008AB5E5 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C10EC1A1635BD0600DEFEBD /* TrustedShadowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrustedShadowViewController.h; sourceTree = "<group>"; };
+		2C10EC1B1635BD0600DEFEBD /* TrustedShadowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrustedShadowViewController.m; sourceTree = "<group>"; };
+		2C10EC1D1635BE0300DEFEBD /* TrustShadowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrustShadowViewController.h; sourceTree = "<group>"; };
+		2C10EC1E1635BE0300DEFEBD /* TrustShadowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrustShadowViewController.m; sourceTree = "<group>"; };
 		2C2F6CD0160A30DD000E261B /* UShadow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UShadow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2F6CD4160A30DD000E261B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2C2F6CD6160A30DD000E261B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +66,9 @@
 		2C2F6D02160A30DD000E261B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C2F6D04160A30DD000E261B /* UShadowTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UShadowTests.h; sourceTree = "<group>"; };
 		2C2F6D05160A30DD000E261B /* UShadowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UShadowTests.m; sourceTree = "<group>"; };
+		2CA0B4FE16313F7B008AB5E5 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		2CA0B50216314016008AB5E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */,
 				2C2F6CD5160A30DD000E261B /* UIKit.framework in Frameworks */,
 				2C2F6CD7160A30DD000E261B /* Foundation.framework in Frameworks */,
 				2C2F6CD9160A30DD000E261B /* CoreGraphics.framework in Frameworks */,
@@ -86,9 +98,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C10EC191635BCD800DEFEBD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C10EC1A1635BD0600DEFEBD /* TrustedShadowViewController.h */,
+				2C10EC1B1635BD0600DEFEBD /* TrustedShadowViewController.m */,
+				2C10EC1D1635BE0300DEFEBD /* TrustShadowViewController.h */,
+				2C10EC1E1635BE0300DEFEBD /* TrustShadowViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		2C2F6CC5160A30DD000E261B = {
 			isa = PBXGroup;
 			children = (
+				2CA0B50216314016008AB5E5 /* CoreLocation.framework */,
 				2C2F6CDC160A30DD000E261B /* UShadow */,
 				2C2F6CFE160A30DD000E261B /* UShadowTests */,
 				2C2F6CD3160A30DD000E261B /* Frameworks */,
@@ -120,10 +144,13 @@
 		2C2F6CDC160A30DD000E261B /* UShadow */ = {
 			isa = PBXGroup;
 			children = (
+				2C10EC191635BCD800DEFEBD /* ViewControllers */,
 				2C2F6CE5160A30DD000E261B /* AppDelegate.h */,
 				2C2F6CE6160A30DD000E261B /* AppDelegate.m */,
-				2C2F6CEE160A30DD000E261B /* UShadow.xcdatamodeld */,
+				2CA0B4FE16313F7B008AB5E5 /* LocationManager.h */,
+				2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */,
 				2C2F6CDD160A30DD000E261B /* Supporting Files */,
+				2C2F6CEE160A30DD000E261B /* UShadow.xcdatamodeld */,
 			);
 			path = UShadow;
 			sourceTree = "<group>";
@@ -273,6 +300,9 @@
 				2C2F6CE3160A30DD000E261B /* main.m in Sources */,
 				2C2F6CE7160A30DD000E261B /* AppDelegate.m in Sources */,
 				2C2F6CF0160A30DD000E261B /* UShadow.xcdatamodeld in Sources */,
+				2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */,
+				2C10EC1C1635BD0600DEFEBD /* TrustedShadowViewController.m in Sources */,
+				2C10EC1F1635BE0300DEFEBD /* TrustShadowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +466,7 @@
 				2C2F6D0B160A30DD000E261B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C2F6D0C160A30DD000E261B /* Build configuration list for PBXNativeTarget "UShadowTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +475,7 @@
 				2C2F6D0E160A30DD000E261B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
