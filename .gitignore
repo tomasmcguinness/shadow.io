@@ -9,3 +9,7 @@ docs/.DS_Store
 .DS_Store
 
 *.xcbkptlist
+
+*.xcuserstate
+
+code/clients/iOS/UShadow/UShadow.xcodeproj/project.xcworkspace/xcuserdata/tomasmcguinness.xcuserdatad/UserInterfaceState.xcuserstate

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C10EC1C1635BD0600DEFEBD /* TrustedShadowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10EC1B1635BD0600DEFEBD /* TrustedShadowViewController.m */; };
 		2C10EC1F1635BE0300DEFEBD /* TrustShadowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10EC1E1635BE0300DEFEBD /* TrustShadowViewController.m */; };
+		2C10EC291635C21200DEFEBD /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10EC281635C21200DEFEBD /* GameKit.framework */; };
 		2C2F6CD5160A30DD000E261B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD4160A30DD000E261B /* UIKit.framework */; };
 		2C2F6CD7160A30DD000E261B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD6160A30DD000E261B /* Foundation.framework */; };
 		2C2F6CD9160A30DD000E261B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD8160A30DD000E261B /* CoreGraphics.framework */; };
@@ -45,6 +46,7 @@
 		2C10EC1B1635BD0600DEFEBD /* TrustedShadowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrustedShadowViewController.m; sourceTree = "<group>"; };
 		2C10EC1D1635BE0300DEFEBD /* TrustShadowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrustShadowViewController.h; sourceTree = "<group>"; };
 		2C10EC1E1635BE0300DEFEBD /* TrustShadowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrustShadowViewController.m; sourceTree = "<group>"; };
+		2C10EC281635C21200DEFEBD /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		2C2F6CD0160A30DD000E261B /* UShadow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UShadow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2F6CD4160A30DD000E261B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2C2F6CD6160A30DD000E261B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C10EC291635C21200DEFEBD /* GameKit.framework in Frameworks */,
 				2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */,
 				2C2F6CD5160A30DD000E261B /* UIKit.framework in Frameworks */,
 				2C2F6CD7160A30DD000E261B /* Foundation.framework in Frameworks */,
@@ -112,6 +115,7 @@
 		2C2F6CC5160A30DD000E261B = {
 			isa = PBXGroup;
 			children = (
+				2C10EC281635C21200DEFEBD /* GameKit.framework */,
 				2CA0B50216314016008AB5E5 /* CoreLocation.framework */,
 				2C2F6CDC160A30DD000E261B /* UShadow */,
 				2C2F6CFE160A30DD000E261B /* UShadowTests */,
