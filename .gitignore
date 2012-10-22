@@ -7,3 +7,5 @@ TestResults
 docs/.DS_Store
 
 .DS_Store
+
+*.xcbkptlist
