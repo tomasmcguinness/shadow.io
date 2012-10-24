@@ -38,11 +38,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>09/21/2012 08:14:06</publishTime>
     </File>
+    <File Include="bin/Microsoft.WindowsAzure.Configuration.dll">
+      <publishTime>10/24/2012 11:15:43</publishTime>
+    </File>
+    <File Include="bin/Microsoft.WindowsAzure.StorageClient.dll">
+      <publishTime>10/24/2012 11:15:43</publishTime>
+    </File>
     <File Include="bin/NetTopologySuite.dll">
       <publishTime>09/21/2012 08:14:09</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>10/24/2012 09:52:34</publishTime>
+      <publishTime>10/24/2012 10:34:14</publishTime>
     </File>
     <File Include="bin/NLog.dll">
       <publishTime>09/21/2012 08:14:07</publishTime>
@@ -66,13 +72,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2012 08:14:10</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
-      <publishTime>10/24/2012 09:52:35</publishTime>
+      <publishTime>10/24/2012 10:34:14</publishTime>
     </File>
     <File Include="bin/Shadow.UShadow.Data.dll">
-      <publishTime>10/24/2012 10:05:32</publishTime>
+      <publishTime>10/24/2012 11:52:22</publishTime>
     </File>
     <File Include="bin/Shadow.UShadow.dll">
-      <publishTime>10/24/2012 10:05:33</publishTime>
+      <publishTime>10/24/2012 11:52:22</publishTime>
     </File>
     <File Include="bin/Spatial4n.Core.NTS.dll">
       <publishTime>09/21/2012 08:14:10</publishTime>
@@ -117,13 +123,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2012 08:14:06</publishTime>
     </File>
     <File Include="bin/Twilio.Api.dll">
-      <publishTime>10/24/2012 09:52:35</publishTime>
+      <publishTime>10/24/2012 10:34:14</publishTime>
     </File>
     <File Include="bin/Twilio.Mvc.dll">
-      <publishTime>10/24/2012 09:52:35</publishTime>
+      <publishTime>10/24/2012 10:34:15</publishTime>
     </File>
     <File Include="bin/Twilio.Twiml.dll">
-      <publishTime>10/24/2012 09:52:35</publishTime>
+      <publishTime>10/24/2012 10:34:15</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/21/2012 08:14:10</publishTime>
@@ -153,7 +159,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2012 08:14:05</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/24/2012 09:52:40</publishTime>
+      <publishTime>10/24/2012 11:19:32</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>10/24/2012 09:41:36</publishTime>
@@ -171,28 +177,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/19/2012 16:02:04</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/24/2012 09:49:47</publishTime>
+      <publishTime>10/24/2012 10:34:13</publishTime>
     </File>
     <File Include="Views/Journey/Index.cshtml">
       <publishTime>10/24/2012 09:41:36</publishTime>
     </File>
     <File Include="Views/Registration/Index.cshtml">
-      <publishTime>10/24/2012 10:02:24</publishTime>
+      <publishTime>10/24/2012 10:34:13</publishTime>
     </File>
     <File Include="Views/Services/Index.cshtml">
       <publishTime>10/24/2012 09:41:36</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/24/2012 09:44:51</publishTime>
+      <publishTime>10/24/2012 10:34:13</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>09/21/2012 08:14:05</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>10/24/2012 09:44:36</publishTime>
+      <publishTime>10/24/2012 10:34:13</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/24/2012 10:05:36</publishTime>
+      <publishTime>10/24/2012 11:52:24</publishTime>
     </File>
   </ItemGroup>
 </Project>
