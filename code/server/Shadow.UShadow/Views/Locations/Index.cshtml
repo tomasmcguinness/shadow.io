@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+
+<div class="page-header">
+    <h1>Locations <small>your location history</small></h1>
+</div>
+
+<div id="map" style="position: relative; width: 1170px; height: 700px;"></div>
+
+<script>
+    var map = new Microsoft.Maps.Map(document.getElementById("map"), { credentials: "AmtskL0EJJszzVRc3amsO0sHaWXOKrR8TEBvrNPKcvwNkjskEtYYTPfwc7-SLCWn" });
+
+    $.ajax({
+        url: "@Url.Action("Locations")",
+        dataType: "json"
+    }).done(function (locations) {
+        map.entities.clear();
+        var pushpinOptions = { visible: true };
+
+        for (var i = 0; i < 78; i++) {
+
+            if (i == 77) {
+                var pushpinOptions = { visible: true, text: "*" };
+            }
+            var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(locations[i].Latitude, locations[i].Longitude), pushpinOptions);
+            map.entities.push(pushpin);
+        }
+
+        var lastLocation = locations[77];
+        map.setView({ center: new Microsoft.Maps.Location(lastLocation.Latitude, lastLocation.Longitude), zoom: 16 });
+
+    });
+
+</script>

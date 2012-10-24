@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>GoogleQRGenerator</id>
+    <version>2.0</version>
+    <title>Google QR Generator</title>
+    <authors>Mike Williams</authors>
+    <owners>Mike Williams</owners>
+    <projectUrl>https://github.com/cmwilliams/GoogleQRGenerator-for-.NET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Google Charts QR Code wrapper for .NET.  QRify any data. Options include size, use https or not, encoding and error correction.</description>
+    <summary>Google Charts QR Code wrapper for .NET</summary>
+    <releaseNotes>Updated to target .NET 3.5+</releaseNotes>
+    <tags>QR, Google, Google QR</tags>
+  </metadata>
+</package>

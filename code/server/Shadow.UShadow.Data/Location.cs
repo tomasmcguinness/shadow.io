@@ -8,8 +8,10 @@ namespace Shadow.UShadow.Data
 {
     public class Location : TableServiceEntity
     {
-        private string p;
-        private DateTime now;
+        public Location()
+        {
+
+        }
 
         public Location(string ushadowId, DateTime now)
         {

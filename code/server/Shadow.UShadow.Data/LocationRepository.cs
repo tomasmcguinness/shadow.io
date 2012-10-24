@@ -35,5 +35,21 @@ namespace Shadow.UShadow.Data
             // Submit the operation to the table service
             serviceContext.SaveChanges();
         }
+
+        public List<Location> Get()
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            TableServiceContext serviceContext = tableClient.GetDataServiceContext();
+
+            serviceContext.ResolveType = (unused) => typeof(Location);
+
+            IQueryable<Location> locations = (from entity in serviceContext.CreateQuery<Location>("locations") select entity);
+            List<Location> songsList = locations.ToList<Location>();
+
+            return songsList;
+        }
     }
 }
