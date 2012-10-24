@@ -1,42 +1,12 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>UShadow</title>
-  <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-  <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
-</head>
-<body>
-  <div class="container">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <a class="brand" href="#">UShadow v0.1</a>
-        <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">Services</a></li>
-          <li><a href="#about">Messages</a></li>
-          <li><a href="#about">Locations</a></li>
-          <li><a href="@Url.Action("Index", "Journey")">Journeys</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <h1>Hello, Tom. I am Hub.</h1>
+﻿<div class="hero-unit">
+    <h1>UShadow - your digital you</h1>
     <p>
-      I'm an currently operating at 100%.
+        A UShadow is your digital presence on the web. It is something that people can communicate with and trust.
     </p>
-    <p>
-      Your last known location was at XXX,XXX
-    </p>
-    <p>
-      You have no upcoming appointments.
-    </p>
-    <p>
-      You have no messages.
-    </p>
-  </div>
-
-  <script src="~/Scripts/jquery-1.8.2.min.js"></script>
-  <script src="~/Scripts/bootstrap.min.js"></script>
-</body>
-</html>
+    <ul>
+        <li>Messaging</li>
+        <li>File Transfer</li>
+        <li>Location Management</li>
+    </ul>
+    <p><a class="btn btn-primary btn-large" href="@Url.Action("Index", "Registration")">Get Started &raquo;</a></p>
+</div>

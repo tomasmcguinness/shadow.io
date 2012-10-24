@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page-header">
+    <h1>Registration</h1>
+</div>
+<p>
+    Registering for a UShadow does not require the creating of an account or handing over your personal details. All you need is the iPhone app to begin. 
+        UShadow will send you a text message containing a link. Once you open the link, the pairing will be completed.
+</p>
+@using(Html.BeginForm())
+{
+    <label>Your mobile number</label>
+    @Html.TextBox("mobileNumber")
+    <span class="help-block">Ensure you have the iOS app installed first.</span>
+
+    <button class="btn btn-primary">Send Text Message</button>
+}

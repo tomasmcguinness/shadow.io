@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>UShadow</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="#">UShadow v0.1</a>
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">Services</a></li>
+                    <li><a href="#about">Messages</a></li>
+                    <li><a href="#about">Locations</a></li>
+                    <li><a href="@Url.Action("Index", "Journey")">Journeys</a></li>
+                </ul>
+            </div>
+        </div>
+
+        @RenderBody()
+
+        <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    </div>
+</body>
+</html>
