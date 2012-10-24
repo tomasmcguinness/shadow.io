@@ -89,6 +89,17 @@
     }
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSLog(@"Opened by URL [%@]", url);
+    return TRUE;
+}
+
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.
