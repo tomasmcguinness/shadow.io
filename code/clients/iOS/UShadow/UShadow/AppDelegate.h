@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "TrustedShadowViewController.h"
+#import "LocationManager.h"
+#import "AuthenticateViewController.h"
+#import "BondingViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 {
@@ -22,7 +25,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) LocationManager *locationManager;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

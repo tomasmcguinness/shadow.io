@@ -25,9 +25,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    [self.locationManager startMonitoringSignificantLocationChanges];
+    self.locationManager = [[LocationManager alloc] init];
+    [self.locationManager trackUsersLocation];
+    
+    //self.locationManager = [[CLLocationManager alloc] init];
+    //self.locationManager.delegate = self;
+    //[self.locationManager startMonitoringSignificantLocationChanges];
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
@@ -37,7 +40,10 @@
     
     UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:shadowController];
     navCon.tabBarItem.title = @"Shadows";
-    rootTabBarController.viewControllers = [NSArray arrayWithObject:navCon];
+    
+    AuthenticateViewController *authenticateController = [[AuthenticateViewController alloc] init];
+    
+    rootTabBarController.viewControllers = [NSArray arrayWithObjects:navCon, authenticateController, nil];
     
     self.window.rootViewController = rootTabBarController;
     
@@ -97,6 +103,13 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     NSLog(@"Opened by URL [%@]", url);
+    
+    BondingViewController *bondingController = [[BondingViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    bondingController.navigationItem.title = @"Bonding";
+    UINavigationController *bondingNavController = [[UINavigationController alloc] initWithRootViewController:bondingController];
+    
+    [self.window.rootViewController presentViewController:bondingNavController animated:YES completion:nil];
+    
     return TRUE;
 }
 
