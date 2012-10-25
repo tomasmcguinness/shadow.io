@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol BondingModelDelegate <NSObject>
+
+- (void)verifyCodeComplete;
+
+@end
+
 @interface BondingModel : NSObject
+
+- (void)verifyCode:(NSString *)detectedCode;
 
 @end

@@ -26,7 +26,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(10, 100, 300, 50);
+    button.titleLabel.text = @"Authenticate";
+    button.titleLabel.textColor  = [UIColor redColor];
+    [button addTarget:self action:@selector(launchQRReader) forControlEvents:UIControlEventAllTouchEvents];
+    [self.view addSubview:button];
+}
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)launchQRReader
+{
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
     reader.readerDelegate = self;
     reader.sourceType=UIImagePickerControllerSourceTypeCamera;
@@ -35,13 +51,7 @@
                               to: 0];
     reader.readerView.zoom = 1.0;
     
-    [self.view addSubview:reader.view];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self presentViewController:reader animated:YES completion:nil];
 }
 
 - (void) imagePickerController: (UIImagePickerController*)reader didFinishPickingMediaWithInfo: (NSDictionary*) info

@@ -37,13 +37,14 @@
     UITabBarController *rootTabBarController = [[UITabBarController alloc] init];
     
     TrustedShadowViewController *shadowController = [[TrustedShadowViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    
     UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:shadowController];
     navCon.tabBarItem.title = @"Shadows";
     
     AuthenticateViewController *authenticateController = [[AuthenticateViewController alloc] init];
+    UINavigationController *authNavCon = [[UINavigationController alloc] initWithRootViewController:authenticateController];
+    authNavCon.tabBarItem.title = @"Authenticate";
     
-    rootTabBarController.viewControllers = [NSArray arrayWithObjects:navCon, authenticateController, nil];
+    rootTabBarController.viewControllers = [NSArray arrayWithObjects:navCon, authNavCon, nil];
     
     self.window.rootViewController = rootTabBarController;
     
