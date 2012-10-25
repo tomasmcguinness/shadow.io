@@ -26,12 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.title = @"Bonding";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(next)];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,20 +38,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)next
+{
+    BondingProgressViewController *bondingVC = [[BondingProgressViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self.navigationController pushViewController:bondingVC animated:YES];
+}
+
 #pragma mark - Table view data source
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Enter Mobile Number";
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return @"Your mobile number, exactly as you presented it to your UShadow";
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +73,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    UITextField *txtField = [[UITextField alloc] initWithFrame:CGRectMake(8, 8, 300, 44)];
+    txtField.placeholder = @"Your mobile number...";
+    txtField.keyboardType = UIKeyboardTypePhonePad;
+    txtField.returnKeyType = UIReturnKeyNext;
+    txtField.delegate = self;
+    
+    [cell.contentView addSubview:txtField];
     
     return cell;
 }

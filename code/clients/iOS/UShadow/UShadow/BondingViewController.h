@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BondingProgressViewController.h"
 
-@interface BondingViewController : UITableViewController
+@interface BondingViewController : UITableViewController<UITextFieldDelegate>
 
 @end

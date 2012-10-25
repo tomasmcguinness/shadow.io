@@ -42,6 +42,7 @@
 		2C2F6D06160A30DD000E261B /* UShadowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F6D05160A30DD000E261B /* UShadowTests.m */; };
 		2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */; };
 		2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA0B50216314016008AB5E5 /* CoreLocation.framework */; };
+		2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		2CA0B4FE16313F7B008AB5E5 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		2CA0B50216314016008AB5E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2CBAE6B81639AC4700B4AAB9 /* BondingProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondingProgressViewController.h; sourceTree = "<group>"; };
+		2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondingProgressViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,8 @@
 			children = (
 				2C164B2A16391392006CCF7D /* AuthenticateViewController.h */,
 				2C164B2B16391392006CCF7D /* AuthenticateViewController.m */,
+				2CBAE6B81639AC4700B4AAB9 /* BondingProgressViewController.h */,
+				2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */,
 				2C164B3B16392401006CCF7D /* BondingViewController.h */,
 				2C164B3C16392401006CCF7D /* BondingViewController.m */,
 				2C10EC1A1635BD0600DEFEBD /* TrustedShadowViewController.h */,
@@ -453,6 +458,7 @@
 				2C164B2C16391392006CCF7D /* AuthenticateViewController.m in Sources */,
 				2C164B3D16392401006CCF7D /* BondingViewController.m in Sources */,
 				2C164B4116392500006CCF7D /* BondingModel.m in Sources */,
+				2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
