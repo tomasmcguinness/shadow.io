@@ -12,193 +12,202 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>09/21/2012 08:14:10</publishTime>
+      <publishTime>09/20/2012 09:29:00</publishTime>
     </File>
     <File Include="bin/BouncyCastle.Crypto.dll">
-      <publishTime>09/21/2012 08:14:09</publishTime>
+      <publishTime>09/20/2012 09:28:59</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>09/21/2012 08:14:05</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/Esent.Interop.dll">
-      <publishTime>09/21/2012 08:14:09</publishTime>
+      <publishTime>09/20/2012 09:28:59</publishTime>
     </File>
     <File Include="bin/GeoAPI.dll">
-      <publishTime>09/21/2012 08:14:09</publishTime>
+      <publishTime>09/20/2012 09:28:59</publishTime>
+    </File>
+    <File Include="bin/GoogleQRGenerator.dll">
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="bin/ICSharpCode.NRefactory.dll">
-      <publishTime>09/21/2012 08:14:09</publishTime>
+      <publishTime>09/20/2012 09:28:59</publishTime>
     </File>
     <File Include="bin/Lucene.Net.Contrib.Spatial.NTS.dll">
-      <publishTime>09/21/2012 08:14:09</publishTime>
+      <publishTime>09/20/2012 09:28:59</publishTime>
     </File>
     <File Include="bin/Lucene.Net.dll">
-      <publishTime>09/21/2012 08:14:09</publishTime>
+      <publishTime>09/20/2012 09:28:59</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/Microsoft.WindowsAzure.Configuration.dll">
-      <publishTime>10/24/2012 11:15:43</publishTime>
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="bin/Microsoft.WindowsAzure.StorageClient.dll">
-      <publishTime>10/24/2012 11:15:43</publishTime>
+      <publishTime>10/25/2012 11:16:46</publishTime>
     </File>
     <File Include="bin/NetTopologySuite.dll">
-      <publishTime>09/21/2012 08:14:09</publishTime>
+      <publishTime>09/20/2012 09:28:59</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>10/24/2012 10:34:14</publishTime>
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="bin/NLog.dll">
-      <publishTime>09/21/2012 08:14:07</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/PowerCollections.dll">
-      <publishTime>09/21/2012 08:14:09</publishTime>
+      <publishTime>09/20/2012 09:29:00</publishTime>
     </File>
     <File Include="bin/Raven.Abstractions.dll">
-      <publishTime>09/21/2012 08:14:08</publishTime>
+      <publishTime>09/20/2012 09:28:59</publishTime>
     </File>
     <File Include="bin/Raven.Client.Embedded.dll">
-      <publishTime>09/21/2012 08:14:10</publishTime>
+      <publishTime>09/20/2012 09:29:00</publishTime>
     </File>
     <File Include="bin/Raven.Client.Lightweight.dll">
-      <publishTime>09/21/2012 08:14:08</publishTime>
+      <publishTime>09/20/2012 09:28:59</publishTime>
     </File>
     <File Include="bin/Raven.Database.dll">
-      <publishTime>09/21/2012 08:14:10</publishTime>
+      <publishTime>09/20/2012 09:29:00</publishTime>
     </File>
     <File Include="bin/Raven.Studio.xap">
-      <publishTime>09/21/2012 08:14:10</publishTime>
+      <publishTime>09/20/2012 09:29:00</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
-      <publishTime>10/24/2012 10:34:14</publishTime>
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="bin/Shadow.UShadow.Data.dll">
-      <publishTime>10/24/2012 11:52:22</publishTime>
+      <publishTime>10/25/2012 11:17:37</publishTime>
     </File>
     <File Include="bin/Shadow.UShadow.dll">
-      <publishTime>10/24/2012 11:52:22</publishTime>
+      <publishTime>10/25/2012 11:17:48</publishTime>
     </File>
     <File Include="bin/Spatial4n.Core.NTS.dll">
-      <publishTime>09/21/2012 08:14:10</publishTime>
+      <publishTime>09/20/2012 09:29:00</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Net.Http.WebRequest.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>09/21/2012 08:14:05</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>09/21/2012 08:14:05</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.Providers.dll">
-      <publishTime>09/21/2012 08:14:05</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>09/21/2012 08:14:05</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>09/21/2012 08:14:06</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="bin/Twilio.Api.dll">
-      <publishTime>10/24/2012 10:34:14</publishTime>
+      <publishTime>10/25/2012 11:16:46</publishTime>
     </File>
     <File Include="bin/Twilio.Mvc.dll">
-      <publishTime>10/24/2012 10:34:15</publishTime>
+      <publishTime>10/25/2012 11:16:46</publishTime>
     </File>
     <File Include="bin/Twilio.Twiml.dll">
-      <publishTime>10/24/2012 10:34:15</publishTime>
+      <publishTime>10/25/2012 11:16:46</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>09/21/2012 08:14:10</publishTime>
+      <publishTime>09/20/2012 09:29:00</publishTime>
     </File>
     <File Include="Content/bootstrap-responsive.css">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:19:32</publishTime>
     </File>
     <File Include="Content/bootstrap-responsive.min.css">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:19:32</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:19:32</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:19:32</publishTime>
     </File>
     <File Include="Content/images/glyphicons-halflings-white.png">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:19:32</publishTime>
     </File>
     <File Include="Content/images/glyphicons-halflings.png">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:19:32</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>09/21/2012 08:14:05</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>09/21/2012 08:14:05</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/24/2012 11:19:32</publishTime>
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:19:32</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:19:32</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:23:19</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.min.js">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:23:19</publishTime>
+    </File>
+    <File Include="Views/Account/Logon.cshtml">
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="Views/Home/Home.cshtml">
       <publishTime>09/19/2012 16:02:04</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/24/2012 10:34:13</publishTime>
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="Views/Journey/Index.cshtml">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:51:36</publishTime>
+    </File>
+    <File Include="Views/Locations/Index.cshtml">
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="Views/Registration/Index.cshtml">
-      <publishTime>10/24/2012 10:34:13</publishTime>
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="Views/Services/Index.cshtml">
-      <publishTime>10/24/2012 09:41:36</publishTime>
+      <publishTime>10/17/2012 15:41:24</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/24/2012 10:34:13</publishTime>
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>09/21/2012 08:14:05</publishTime>
+      <publishTime>09/20/2012 09:28:58</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>10/24/2012 10:34:13</publishTime>
+      <publishTime>10/25/2012 11:16:45</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/24/2012 11:52:24</publishTime>
+      <publishTime>10/25/2012 11:18:13</publishTime>
     </File>
   </ItemGroup>
 </Project>
