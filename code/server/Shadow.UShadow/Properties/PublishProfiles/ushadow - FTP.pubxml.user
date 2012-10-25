@@ -78,10 +78,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/25/2012 21:31:45</publishTime>
     </File>
     <File Include="bin/Shadow.UShadow.Data.dll">
-      <publishTime>10/25/2012 21:59:42</publishTime>
+      <publishTime>10/25/2012 22:24:38</publishTime>
     </File>
     <File Include="bin/Shadow.UShadow.dll">
-      <publishTime>10/25/2012 21:59:43</publishTime>
+      <publishTime>10/25/2012 22:24:38</publishTime>
     </File>
     <File Include="bin/Spatial4n.Core.NTS.dll">
       <publishTime>10/25/2012 21:31:45</publishTime>
@@ -207,7 +207,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/25/2012 21:31:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/25/2012 21:59:53</publishTime>
+      <publishTime>10/25/2012 22:24:47</publishTime>
     </File>
   </ItemGroup>
 </Project>
