@@ -23,7 +23,7 @@ namespace Shadow.UShadow.Controllers
 
             twilio.SendSmsMessage("+442033222325", mobileNumber, message, (msg) =>
             {
-                // Console.WriteLine(msg.Sid);
+                // TODO: Record the fact this sms was generated. The number should be used for verification.
             });
 
             return View();
