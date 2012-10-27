@@ -1,38 +1,74 @@
 ﻿@{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
 
 <div class="page-header">
-    <h1>Locations <small>your location history</small></h1>
+  <h1>Locations <small>your location history</small></h1>
 </div>
+
+<h1>
+  You are currently located: <span id="currentLocation"></span>
+</h1>
 
 <div id="map" style="position: relative; width: 1170px; height: 700px;"></div>
 
 <script>
-    var map = new Microsoft.Maps.Map(document.getElementById("map"), { credentials: "AmtskL0EJJszzVRc3amsO0sHaWXOKrR8TEBvrNPKcvwNkjskEtYYTPfwc7-SLCWn" });
+  var map = new Microsoft.Maps.Map(document.getElementById("map"), { credentials: "AmtskL0EJJszzVRc3amsO0sHaWXOKrR8TEBvrNPKcvwNkjskEtYYTPfwc7-SLCWn" });
+  var searchManager = null;
 
-    $.ajax({
-        url: "@Url.Action("Locations")",
-        dataType: "json"
-    }).done(function (locations) {
-        map.entities.clear();
-        var pushpinOptions = { visible: true };
+  function createSearchManager() {
+    if (!searchManager) {
+      map.addComponent('searchManager', new Microsoft.Maps.Search.SearchManager(map));
+      searchManager = map.getComponent('searchManager');
+    }
+  }
 
-        for (var i = 0; i < 78; i++) {
+  Microsoft.Maps.loadModule('Microsoft.Maps.Search', { callback: createSearchManager })
 
-            if (i == 77) {
-                var pushpinOptions = { visible: true, text: "*" };
-            }
-            var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(locations[i].Latitude, locations[i].Longitude), pushpinOptions);
-            map.entities.push(pushpin);
-        }
+  $.ajax({
+    url: '@Url.Action("Locations")',
+    dataType: 'json'
+  }).done(function (locations) {
+    map.entities.clear();
+    var pushpinOptions = { visible: true };
 
-        var lastLocation = locations[77];
-        map.setView({ center: new Microsoft.Maps.Location(lastLocation.Latitude, lastLocation.Longitude), zoom: 16 });
+    for (var i = 0; i < locations.length; i++) {
 
-    });
+      if (i == locations.length - 1) {
+        var pushpinOptions = { visible: true, text: "*" };
+      }
+      var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(locations[i].Latitude, locations[i].Longitude), pushpinOptions);
+      map.entities.push(pushpin);
+    }
+
+    var lastLocation = locations[locations.length - 1];
+    var currentLocation = new Microsoft.Maps.Location(lastLocation.Latitude, lastLocation.Longitude);
+    map.setView({ center: currentLocation, zoom: 16 });
+
+    var userData = { name: 'Maps Test User', id: 'XYZ' };
+
+    var request =
+    {
+      location: currentLocation,
+      callback: onReverseGeocodeSuccess,
+      errorCallback: onReverseGeocodeFailed,
+      userData: userData
+    };
+
+    searchManager.reverseGeocode(request);
+  });
+
+  function onReverseGeocodeSuccess(result, userData) {
+    if (result) {
+      $("#currentLocation").html(result.name);
+    }
+  }
+
+  function onReverseGeocodeFailed(result, userData) {
+
+  }
 
 </script>

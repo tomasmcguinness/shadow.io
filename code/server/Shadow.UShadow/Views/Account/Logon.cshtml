@@ -1,13 +1,68 @@
-﻿@{
-    ViewBag.Title = "Logon";
+﻿@model Guid
+@{
+  ViewBag.Title = "Logon";
 }
 
 <div class="page-header">
-    <h1>Locations <small>access your UShadow</small></h1>
+  <h1>Authenticate <small>verify your identity to access your UShadow</small></h1>
 </div>
-<p>To gain access to your UShadow, you must authenticate yourself. To do this, launch the UShadow iOS app and open the Verify tab. Scan this code to complete authenticate.</p>
-<div style="width: 500px; height: 500px; margin-left: auto; margin-right: auto; text-align:center;">
-    <img src="https://chart.googleapis.com/chart?cht=qr&chl=SomeDataToQRify&chs=400x400" /><br />
-    <strong>0:30</strong>
+<p>
+  To gain access to your UShadow, you must authenticate yourself. To do this, launch
+  the UShadow iOS app and open the Verify tab. Scan this code to complete authenticate.
+</p>
+<div style="width: 500px; height: 500px; margin-left: auto; margin-right: auto; text-align: center;">
+  @{
+    var googleQr = new GoogleQRGenerator.GoogleQr(Model.ToString(), "400x400", true);  
+  }
+  <img id="qrImage" src="@googleQr.ToString()" /><br />
+  <h1>Valid For <span id="counter">0:30</span> seconds</h1>
+  <h1>@Model</h1>
 </div>
+
+@section Scripts
+{
+  <script>
+    var seconds = 30
+
+    function display() {
+      if (seconds <= -1) {
+        seconds = 0
+      }
+      else {
+        seconds -= 1
+        setTimeout("display()", 1000);
+        checkForAuthorization();
+      }
+
+      $("#counter").html(seconds);
+    }
+
+    display();
+
+    function checkForAuthorization(guid) {
+      $.ajax({
+        type: "POST",
+        url: "@Url.Action("CheckForAuthorization")",
+        dataType: "JSON",
+        data: { sessionId: "@Model" }
+      }).done(function (result) {
+        if (result) {
+          document.location.href = unescape(getQuerystring("ReturnUrl"));
+        }
+      })
+      ;
+    }
+
+    function getQuerystring(key, default_) {
+      if (default_ == null) default_ = "";
+      key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+      var regex = new RegExp("[\\?&]" + key + "=([^&#]*)");
+      var qs = regex.exec(window.location.href);
+      if (qs == null)
+        return default_;
+      else
+        return qs[1];
+    }
+  </script>
+}
 

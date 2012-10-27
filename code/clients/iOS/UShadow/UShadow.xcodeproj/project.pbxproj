@@ -10,6 +10,19 @@
 		2C10EC1C1635BD0600DEFEBD /* TrustedShadowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10EC1B1635BD0600DEFEBD /* TrustedShadowViewController.m */; };
 		2C10EC1F1635BE0300DEFEBD /* TrustShadowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C10EC1E1635BE0300DEFEBD /* TrustShadowViewController.m */; };
 		2C10EC291635C21200DEFEBD /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C10EC281635C21200DEFEBD /* GameKit.framework */; };
+		2C164B251639136A006CCF7D /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C164B1F1639136A006CCF7D /* libzbar.a */; };
+		2C164B261639136A006CCF7D /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C164B211639136A006CCF7D /* zbar-back.png */; };
+		2C164B271639136A006CCF7D /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 2C164B221639136A006CCF7D /* zbar-help.html */; };
+		2C164B281639136A006CCF7D /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C164B231639136A006CCF7D /* zbar-helpicons.png */; };
+		2C164B291639136A006CCF7D /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C164B241639136A006CCF7D /* zbar-samples.png */; };
+		2C164B2C16391392006CCF7D /* AuthenticateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C164B2B16391392006CCF7D /* AuthenticateViewController.m */; };
+		2C164B2E163913FF006CCF7D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C164B2D163913FF006CCF7D /* AVFoundation.framework */; };
+		2C164B3016391407006CCF7D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C164B2F16391407006CCF7D /* CoreMedia.framework */; };
+		2C164B321639140E006CCF7D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C164B311639140E006CCF7D /* CoreVideo.framework */; };
+		2C164B3416391418006CCF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C164B3316391418006CCF7D /* QuartzCore.framework */; };
+		2C164B3616391422006CCF7D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C164B3516391422006CCF7D /* libiconv.dylib */; };
+		2C164B3D16392401006CCF7D /* BondingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C164B3C16392401006CCF7D /* BondingViewController.m */; };
+		2C164B4116392500006CCF7D /* BondingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C164B4016392500006CCF7D /* BondingModel.m */; };
 		2C2F6CD5160A30DD000E261B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD4160A30DD000E261B /* UIKit.framework */; };
 		2C2F6CD7160A30DD000E261B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD6160A30DD000E261B /* Foundation.framework */; };
 		2C2F6CD9160A30DD000E261B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD8160A30DD000E261B /* CoreGraphics.framework */; };
@@ -27,8 +40,12 @@
 		2C2F6CFB160A30DD000E261B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CDA160A30DD000E261B /* CoreData.framework */; };
 		2C2F6D03160A30DD000E261B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F6D01160A30DD000E261B /* InfoPlist.strings */; };
 		2C2F6D06160A30DD000E261B /* UShadowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F6D05160A30DD000E261B /* UShadowTests.m */; };
+		2C414064163C1CC6009B59F6 /* TaggedNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C414063163C1CC6009B59F6 /* TaggedNSURLConnection.m */; };
+		2C414068163C4DB0009B59F6 /* AuthenticationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C414067163C4DB0009B59F6 /* AuthenticationModel.m */; };
+		2C41406A163C526F009B59F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C414069163C526F009B59F6 /* Security.framework */; };
 		2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */; };
 		2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA0B50216314016008AB5E5 /* CoreLocation.framework */; };
+		2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +64,42 @@
 		2C10EC1D1635BE0300DEFEBD /* TrustShadowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrustShadowViewController.h; sourceTree = "<group>"; };
 		2C10EC1E1635BE0300DEFEBD /* TrustShadowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrustShadowViewController.m; sourceTree = "<group>"; };
 		2C10EC281635C21200DEFEBD /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		2C164B0B1639136A006CCF7D /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
+		2C164B0C1639136A006CCF7D /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		2C164B0D1639136A006CCF7D /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		2C164B0E1639136A006CCF7D /* ImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScanner.h; sourceTree = "<group>"; };
+		2C164B0F1639136A006CCF7D /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
+		2C164B101639136A006CCF7D /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		2C164B111639136A006CCF7D /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Symbol.h; sourceTree = "<group>"; };
+		2C164B121639136A006CCF7D /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		2C164B131639136A006CCF7D /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Window.h; sourceTree = "<group>"; };
+		2C164B141639136A006CCF7D /* zbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbar.h; sourceTree = "<group>"; };
+		2C164B151639136A006CCF7D /* ZBarCameraSimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCameraSimulator.h; sourceTree = "<group>"; };
+		2C164B161639136A006CCF7D /* ZBarCaptureReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarCaptureReader.h; sourceTree = "<group>"; };
+		2C164B171639136A006CCF7D /* ZBarHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarHelpController.h; sourceTree = "<group>"; };
+		2C164B181639136A006CCF7D /* ZBarImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImage.h; sourceTree = "<group>"; };
+		2C164B191639136A006CCF7D /* ZBarImageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarImageScanner.h; sourceTree = "<group>"; };
+		2C164B1A1639136A006CCF7D /* ZBarReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderController.h; sourceTree = "<group>"; };
+		2C164B1B1639136A006CCF7D /* ZBarReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderView.h; sourceTree = "<group>"; };
+		2C164B1C1639136A006CCF7D /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
+		2C164B1D1639136A006CCF7D /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
+		2C164B1E1639136A006CCF7D /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
+		2C164B1F1639136A006CCF7D /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
+		2C164B211639136A006CCF7D /* zbar-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-back.png"; sourceTree = "<group>"; };
+		2C164B221639136A006CCF7D /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
+		2C164B231639136A006CCF7D /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
+		2C164B241639136A006CCF7D /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		2C164B2A16391392006CCF7D /* AuthenticateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticateViewController.h; sourceTree = "<group>"; };
+		2C164B2B16391392006CCF7D /* AuthenticateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticateViewController.m; sourceTree = "<group>"; };
+		2C164B2D163913FF006CCF7D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2C164B2F16391407006CCF7D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		2C164B311639140E006CCF7D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		2C164B3316391418006CCF7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2C164B3516391422006CCF7D /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		2C164B3B16392401006CCF7D /* BondingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondingViewController.h; sourceTree = "<group>"; };
+		2C164B3C16392401006CCF7D /* BondingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondingViewController.m; sourceTree = "<group>"; };
+		2C164B3F16392500006CCF7D /* BondingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondingModel.h; sourceTree = "<group>"; };
+		2C164B4016392500006CCF7D /* BondingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondingModel.m; sourceTree = "<group>"; };
 		2C2F6CD0160A30DD000E261B /* UShadow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UShadow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2F6CD4160A30DD000E261B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2C2F6CD6160A30DD000E261B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,9 +121,16 @@
 		2C2F6D02160A30DD000E261B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C2F6D04160A30DD000E261B /* UShadowTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UShadowTests.h; sourceTree = "<group>"; };
 		2C2F6D05160A30DD000E261B /* UShadowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UShadowTests.m; sourceTree = "<group>"; };
+		2C414062163C1CC5009B59F6 /* TaggedNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaggedNSURLConnection.h; sourceTree = "<group>"; };
+		2C414063163C1CC6009B59F6 /* TaggedNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaggedNSURLConnection.m; sourceTree = "<group>"; };
+		2C414066163C4DB0009B59F6 /* AuthenticationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationModel.h; sourceTree = "<group>"; };
+		2C414067163C4DB0009B59F6 /* AuthenticationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationModel.m; sourceTree = "<group>"; };
+		2C414069163C526F009B59F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2CA0B4FE16313F7B008AB5E5 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		2CA0B50216314016008AB5E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2CBAE6B81639AC4700B4AAB9 /* BondingProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondingProgressViewController.h; sourceTree = "<group>"; };
+		2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondingProgressViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +138,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C41406A163C526F009B59F6 /* Security.framework in Frameworks */,
+				2C164B3616391422006CCF7D /* libiconv.dylib in Frameworks */,
+				2C164B3416391418006CCF7D /* QuartzCore.framework in Frameworks */,
+				2C164B321639140E006CCF7D /* CoreVideo.framework in Frameworks */,
+				2C164B3016391407006CCF7D /* CoreMedia.framework in Frameworks */,
+				2C164B2E163913FF006CCF7D /* AVFoundation.framework in Frameworks */,
 				2C10EC291635C21200DEFEBD /* GameKit.framework in Frameworks */,
 				2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */,
 				2C2F6CD5160A30DD000E261B /* UIKit.framework in Frameworks */,
 				2C2F6CD7160A30DD000E261B /* Foundation.framework in Frameworks */,
 				2C2F6CD9160A30DD000E261B /* CoreGraphics.framework in Frameworks */,
 				2C2F6CDB160A30DD000E261B /* CoreData.framework in Frameworks */,
+				2C164B251639136A006CCF7D /* libzbar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +171,12 @@
 		2C10EC191635BCD800DEFEBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C164B2A16391392006CCF7D /* AuthenticateViewController.h */,
+				2C164B2B16391392006CCF7D /* AuthenticateViewController.m */,
+				2CBAE6B81639AC4700B4AAB9 /* BondingProgressViewController.h */,
+				2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */,
+				2C164B3B16392401006CCF7D /* BondingViewController.h */,
+				2C164B3C16392401006CCF7D /* BondingViewController.m */,
 				2C10EC1A1635BD0600DEFEBD /* TrustedShadowViewController.h */,
 				2C10EC1B1635BD0600DEFEBD /* TrustedShadowViewController.m */,
 				2C10EC1D1635BE0300DEFEBD /* TrustShadowViewController.h */,
@@ -112,9 +185,90 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		2C164B071639136A006CCF7D /* ZBarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				2C164B081639136A006CCF7D /* Headers */,
+				2C164B1F1639136A006CCF7D /* libzbar.a */,
+				2C164B201639136A006CCF7D /* Resources */,
+			);
+			path = ZBarSDK;
+			sourceTree = "<group>";
+		};
+		2C164B081639136A006CCF7D /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2C164B091639136A006CCF7D /* ZBarSDK */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		2C164B091639136A006CCF7D /* ZBarSDK */ = {
+			isa = PBXGroup;
+			children = (
+				2C164B0A1639136A006CCF7D /* zbar */,
+				2C164B141639136A006CCF7D /* zbar.h */,
+				2C164B151639136A006CCF7D /* ZBarCameraSimulator.h */,
+				2C164B161639136A006CCF7D /* ZBarCaptureReader.h */,
+				2C164B171639136A006CCF7D /* ZBarHelpController.h */,
+				2C164B181639136A006CCF7D /* ZBarImage.h */,
+				2C164B191639136A006CCF7D /* ZBarImageScanner.h */,
+				2C164B1A1639136A006CCF7D /* ZBarReaderController.h */,
+				2C164B1B1639136A006CCF7D /* ZBarReaderView.h */,
+				2C164B1C1639136A006CCF7D /* ZBarReaderViewController.h */,
+				2C164B1D1639136A006CCF7D /* ZBarSDK.h */,
+				2C164B1E1639136A006CCF7D /* ZBarSymbol.h */,
+			);
+			path = ZBarSDK;
+			sourceTree = "<group>";
+		};
+		2C164B0A1639136A006CCF7D /* zbar */ = {
+			isa = PBXGroup;
+			children = (
+				2C164B0B1639136A006CCF7D /* Decoder.h */,
+				2C164B0C1639136A006CCF7D /* Exception.h */,
+				2C164B0D1639136A006CCF7D /* Image.h */,
+				2C164B0E1639136A006CCF7D /* ImageScanner.h */,
+				2C164B0F1639136A006CCF7D /* Processor.h */,
+				2C164B101639136A006CCF7D /* Scanner.h */,
+				2C164B111639136A006CCF7D /* Symbol.h */,
+				2C164B121639136A006CCF7D /* Video.h */,
+				2C164B131639136A006CCF7D /* Window.h */,
+			);
+			path = zbar;
+			sourceTree = "<group>";
+		};
+		2C164B201639136A006CCF7D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C164B211639136A006CCF7D /* zbar-back.png */,
+				2C164B221639136A006CCF7D /* zbar-help.html */,
+				2C164B231639136A006CCF7D /* zbar-helpicons.png */,
+				2C164B241639136A006CCF7D /* zbar-samples.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2C164B3E163924E7006CCF7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C414066163C4DB0009B59F6 /* AuthenticationModel.h */,
+				2C414067163C4DB0009B59F6 /* AuthenticationModel.m */,
+				2C164B3F16392500006CCF7D /* BondingModel.h */,
+				2C164B4016392500006CCF7D /* BondingModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		2C2F6CC5160A30DD000E261B = {
 			isa = PBXGroup;
 			children = (
+				2C414069163C526F009B59F6 /* Security.framework */,
+				2C164B3516391422006CCF7D /* libiconv.dylib */,
+				2C164B3316391418006CCF7D /* QuartzCore.framework */,
+				2C164B311639140E006CCF7D /* CoreVideo.framework */,
+				2C164B2F16391407006CCF7D /* CoreMedia.framework */,
+				2C164B2D163913FF006CCF7D /* AVFoundation.framework */,
 				2C10EC281635C21200DEFEBD /* GameKit.framework */,
 				2CA0B50216314016008AB5E5 /* CoreLocation.framework */,
 				2C2F6CDC160A30DD000E261B /* UShadow */,
@@ -136,6 +290,7 @@
 		2C2F6CD3160A30DD000E261B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C164B071639136A006CCF7D /* ZBarSDK */,
 				2C2F6CD4160A30DD000E261B /* UIKit.framework */,
 				2C2F6CD6160A30DD000E261B /* Foundation.framework */,
 				2C2F6CD8160A30DD000E261B /* CoreGraphics.framework */,
@@ -148,6 +303,7 @@
 		2C2F6CDC160A30DD000E261B /* UShadow */ = {
 			isa = PBXGroup;
 			children = (
+				2C164B3E163924E7006CCF7D /* Models */,
 				2C10EC191635BCD800DEFEBD /* ViewControllers */,
 				2C2F6CE5160A30DD000E261B /* AppDelegate.h */,
 				2C2F6CE6160A30DD000E261B /* AppDelegate.m */,
@@ -155,6 +311,8 @@
 				2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */,
 				2C2F6CDD160A30DD000E261B /* Supporting Files */,
 				2C2F6CEE160A30DD000E261B /* UShadow.xcdatamodeld */,
+				2C414062163C1CC5009B59F6 /* TaggedNSURLConnection.h */,
+				2C414063163C1CC6009B59F6 /* TaggedNSURLConnection.m */,
 			);
 			path = UShadow;
 			sourceTree = "<group>";
@@ -267,6 +425,10 @@
 				2C2F6CE9160A30DD000E261B /* Default.png in Resources */,
 				2C2F6CEB160A30DD000E261B /* Default@2x.png in Resources */,
 				2C2F6CED160A30DD000E261B /* Default-568h@2x.png in Resources */,
+				2C164B261639136A006CCF7D /* zbar-back.png in Resources */,
+				2C164B271639136A006CCF7D /* zbar-help.html in Resources */,
+				2C164B281639136A006CCF7D /* zbar-helpicons.png in Resources */,
+				2C164B291639136A006CCF7D /* zbar-samples.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +469,12 @@
 				2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */,
 				2C10EC1C1635BD0600DEFEBD /* TrustedShadowViewController.m in Sources */,
 				2C10EC1F1635BE0300DEFEBD /* TrustShadowViewController.m in Sources */,
+				2C164B2C16391392006CCF7D /* AuthenticateViewController.m in Sources */,
+				2C164B3D16392401006CCF7D /* BondingViewController.m in Sources */,
+				2C164B4116392500006CCF7D /* BondingModel.m in Sources */,
+				2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */,
+				2C414064163C1CC6009B59F6 /* TaggedNSURLConnection.m in Sources */,
+				2C414068163C4DB0009B59F6 /* AuthenticationModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +569,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UShadow/UShadow-Prefix.pch";
 				INFOPLIST_FILE = "UShadow/UShadow-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ZBarSDK\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -412,7 +585,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UShadow/UShadow-Prefix.pch";
 				INFOPLIST_FILE = "UShadow/UShadow-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ZBarSDK\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

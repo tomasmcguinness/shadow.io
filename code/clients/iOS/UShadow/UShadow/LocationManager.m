@@ -16,7 +16,9 @@
 {
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    [self.locationManager startMonitoringSignificantLocationChanges];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    self.locationManager.distanceFilter = kCLLocationAccuracyHundredMeters;
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -39,33 +41,35 @@
     NSMutableURLRequest *requestObj = [NSMutableURLRequest requestWithURL:url];
     [requestObj setValue:@"application/json" forHTTPHeaderField:@"content-type"];
     [requestObj setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
-    [requestObj setHTTPMethod:@"PUT"];
+    [requestObj setHTTPMethod:@"POST"];
+    
+    NSLog(@"Saving location to server [%@]...", urlString);
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
     [NSURLConnection sendAsynchronousRequest:requestObj queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-     {
+    {
          [queue release];
          NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
          
          if(error)
          {
              dispatch_async(dispatch_get_main_queue(), ^{
-//                 DLog(@"Commute Save Failed: %@", [error localizedDescription]);
+                 NSLog(@"Location Save Failed: %@", [error localizedDescription]);
              });
          }
          else
          {
              if(httpResp.statusCode == 200)
              {
-//                 DLog(@"Commute saved!");
+                 NSLog(@"Location saved!");
 //                 dispatch_async(dispatch_get_main_queue(), ^{
 //                     [self.delegate saveCommuteComplete];
 //                 });
              }
              else
              {
-//                 DLog(@"Commute service returned an error");
+                 NSLog(@"Location save failed: [%d]", httpResp.statusCode);
 //                 dispatch_async(dispatch_get_main_queue(), ^{
 //                     [self.delegate saveCommuteFailed:@"An enxpected error occurred. Please try again."];
 //                 });
