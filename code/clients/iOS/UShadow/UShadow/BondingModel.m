@@ -199,22 +199,12 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
 {
     OSStatus securityError = errSecSuccess;
     
-//    CFStringRef password = CFSTR("Password");
-//    const void *keys[] =   { kSecImportExportPassphrase };
-//    const void *values[] = { password };
-//    CFDictionaryRef optionsDictionary = CFDictionaryCreate(
-//                                                           NULL, keys,
-//                                                           values, 1,
-//                                                           NULL, NULL);
-    
     NSMutableDictionary *optionsDictionary = [[NSMutableDictionary alloc] init];
 	
 	// Set the public key query dictionary.
     [optionsDictionary setObject:@"Password" forKey:(id)kSecImportExportPassphrase];
     
     CFArrayRef items = CFArrayCreate(kCFAllocatorDefault, 0, 0, NULL);
-    
-    NSLog(@"Converting [% bytes] of NSData into a certificate", CFDataGetLength(inPKCS12Data));
     
     securityError = SecPKCS12Import(inPKCS12Data,
                                     (CFDictionaryRef)optionsDictionary,
