@@ -40,6 +40,9 @@
 		2C2F6CFB160A30DD000E261B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CDA160A30DD000E261B /* CoreData.framework */; };
 		2C2F6D03160A30DD000E261B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C2F6D01160A30DD000E261B /* InfoPlist.strings */; };
 		2C2F6D06160A30DD000E261B /* UShadowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F6D05160A30DD000E261B /* UShadowTests.m */; };
+		2C414064163C1CC6009B59F6 /* TaggedNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C414063163C1CC6009B59F6 /* TaggedNSURLConnection.m */; };
+		2C414068163C4DB0009B59F6 /* AuthenticationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C414067163C4DB0009B59F6 /* AuthenticationModel.m */; };
+		2C41406A163C526F009B59F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C414069163C526F009B59F6 /* Security.framework */; };
 		2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */; };
 		2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA0B50216314016008AB5E5 /* CoreLocation.framework */; };
 		2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */; };
@@ -118,6 +121,11 @@
 		2C2F6D02160A30DD000E261B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C2F6D04160A30DD000E261B /* UShadowTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UShadowTests.h; sourceTree = "<group>"; };
 		2C2F6D05160A30DD000E261B /* UShadowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UShadowTests.m; sourceTree = "<group>"; };
+		2C414062163C1CC5009B59F6 /* TaggedNSURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaggedNSURLConnection.h; sourceTree = "<group>"; };
+		2C414063163C1CC6009B59F6 /* TaggedNSURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaggedNSURLConnection.m; sourceTree = "<group>"; };
+		2C414066163C4DB0009B59F6 /* AuthenticationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationModel.h; sourceTree = "<group>"; };
+		2C414067163C4DB0009B59F6 /* AuthenticationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationModel.m; sourceTree = "<group>"; };
+		2C414069163C526F009B59F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2CA0B4FE16313F7B008AB5E5 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		2CA0B50216314016008AB5E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -130,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C41406A163C526F009B59F6 /* Security.framework in Frameworks */,
 				2C164B3616391422006CCF7D /* libiconv.dylib in Frameworks */,
 				2C164B3416391418006CCF7D /* QuartzCore.framework in Frameworks */,
 				2C164B321639140E006CCF7D /* CoreVideo.framework in Frameworks */,
@@ -243,6 +252,8 @@
 		2C164B3E163924E7006CCF7D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2C414066163C4DB0009B59F6 /* AuthenticationModel.h */,
+				2C414067163C4DB0009B59F6 /* AuthenticationModel.m */,
 				2C164B3F16392500006CCF7D /* BondingModel.h */,
 				2C164B4016392500006CCF7D /* BondingModel.m */,
 			);
@@ -252,6 +263,7 @@
 		2C2F6CC5160A30DD000E261B = {
 			isa = PBXGroup;
 			children = (
+				2C414069163C526F009B59F6 /* Security.framework */,
 				2C164B3516391422006CCF7D /* libiconv.dylib */,
 				2C164B3316391418006CCF7D /* QuartzCore.framework */,
 				2C164B311639140E006CCF7D /* CoreVideo.framework */,
@@ -299,6 +311,8 @@
 				2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */,
 				2C2F6CDD160A30DD000E261B /* Supporting Files */,
 				2C2F6CEE160A30DD000E261B /* UShadow.xcdatamodeld */,
+				2C414062163C1CC5009B59F6 /* TaggedNSURLConnection.h */,
+				2C414063163C1CC6009B59F6 /* TaggedNSURLConnection.m */,
 			);
 			path = UShadow;
 			sourceTree = "<group>";
@@ -459,6 +473,8 @@
 				2C164B3D16392401006CCF7D /* BondingViewController.m in Sources */,
 				2C164B4116392500006CCF7D /* BondingModel.m in Sources */,
 				2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */,
+				2C414064163C1CC6009B59F6 /* TaggedNSURLConnection.m in Sources */,
+				2C414068163C4DB0009B59F6 /* AuthenticationModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

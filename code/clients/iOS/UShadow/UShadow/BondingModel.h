@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TaggedNSURLConnection.h"
 
 @protocol BondingModelDelegate <NSObject>
 
@@ -16,15 +17,21 @@
 
 @end
 
-@interface BondingModel : NSObject
+@interface BondingModel : NSObject<NSURLConnectionDelegate>
+
+@property (nonatomic, strong) NSString *smsNumber;
+@property (nonatomic, strong) NSString *detectedCode;
+
+@property (strong, nonatomic) NSMutableData *returnedData;
+
+@property (nonatomic, strong) TaggedNSURLConnection *connection;
 
 @property (nonatomic, strong) id<BondingModelDelegate> delegate;
 @property (nonatomic) BOOL verifyingCredentials;
 @property (nonatomic) BOOL credentialsVerified;
 @property (nonatomic) BOOL generatingCertificate;
 @property (nonatomic) BOOL certificateGenerated;
-@property (nonatomic) BOOL sendingCertificate;
-@property (nonatomic) BOOL certificateSend;
+@property (nonatomic) BOOL completingBonding;
 @property (nonatomic) BOOL bondingComplete;
 
 - (void)verifyCode:(NSString *)smsNumber code:(NSString *)detectedCode;

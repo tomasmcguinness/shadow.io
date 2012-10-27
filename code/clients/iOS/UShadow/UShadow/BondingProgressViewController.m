@@ -68,7 +68,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 4;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,6 +77,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     UIActivityIndicatorView *v = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [v startAnimating];
     v.frame = CGRectMake(0, 0, 50, 44);
     
     switch(indexPath.row)
@@ -104,37 +105,33 @@
             
             if(self.model.generatingCertificate)
             {
-                //cell.accessoryView = v;
-                //[v sizeToFit];
+                cell.accessoryView = v;
             }
             
             if(self.model.certificateGenerated)
             {
                 cell.textLabel.text = @"Generating Certificate";
+                cell.accessoryView = nil;
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
             }
             
             break;
         case 2:
             
-            cell.textLabel.text = @"Sending Certificate...";
+            cell.textLabel.text = @"Bonding...";
             
-            if(self.model.sendingCertificate)
+            if(self.model.completingBonding)
             {
-               
-                //cell.accessoryView = v;
-                //[v sizeToFit];
+                cell.accessoryView = v;
             }
             
-            if(self.model.certificateSend)
+            if(self.model.bondingComplete)
             {
-                cell.textLabel.text = @"Sending Certificate";
+                cell.textLabel.text = @"Bonding";
+                cell.accessoryView = nil;
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
             }
             
-            break;
-        case 3:
-            cell.textLabel.text = @"Bonding Complete";
             break;
     }
     
