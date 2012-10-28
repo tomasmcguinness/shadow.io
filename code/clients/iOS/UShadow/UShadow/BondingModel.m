@@ -199,22 +199,12 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
 {
     OSStatus securityError = errSecSuccess;
     
-//    CFStringRef password = CFSTR("Password");
-//    const void *keys[] =   { kSecImportExportPassphrase };
-//    const void *values[] = { password };
-//    CFDictionaryRef optionsDictionary = CFDictionaryCreate(
-//                                                           NULL, keys,
-//                                                           values, 1,
-//                                                           NULL, NULL);
-    
     NSMutableDictionary *optionsDictionary = [[NSMutableDictionary alloc] init];
 	
 	// Set the public key query dictionary.
     [optionsDictionary setObject:@"Password" forKey:(id)kSecImportExportPassphrase];
     
     CFArrayRef items = CFArrayCreate(kCFAllocatorDefault, 0, 0, NULL);
-    
-    NSLog(@"Converting [% bytes] of NSData into a certificate", CFDataGetLength(inPKCS12Data));
     
     securityError = SecPKCS12Import(inPKCS12Data,
                                     (CFDictionaryRef)optionsDictionary,
@@ -242,6 +232,7 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
     OSStatus sanityCheck = noErr;
     NSData * signedHash = nil;
     
+    uint8_t * signedBytes = NULL;
     uint8_t * signature = NULL;
     size_t signatureSize = SecKeyGetBlockSize(key);
     
@@ -249,15 +240,33 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
     signature = malloc( signatureSize );
     memset((void *)signature, 0x0, signatureSize);
     
-    // Sign the SHA1 hash.
-    //NSData *checksum = [self checksumSHA1:[input bytes] length:[input length]];
-    
     sanityCheck = SecKeyRawSign(key,
                                 kSecPaddingPKCS1SHA1,
-                                (const uint8_t *)[input bytes],
-                                2048,
-                                signature,
-                                &signatureSize);
+                                (const uint8_t *)&input,
+                                10,
+                                (uint8_t *)signature,
+                                &signatureSize
+                                );
+    
+    signedHash = [NSData dataWithBytes:(const void *)signedBytes length:(NSUInteger)signatureSize];
+    
+    NSLog(@"%@", signedHash);
+    
+    //[Base64 initialize];
+    //NSString *b64EncStr = [Base64 encode:signedHash];
+    //NSLog(@"%@", b64EncStr);
+    //NSLog(@"String Length: %d", b64EncStr.length);
+    
+    
+//    // Sign the SHA1 hash.
+//    NSData *checksum = [self checksumSHA1:[input bytes] length:[input length]];
+//
+//    sanityCheck = SecKeyRawSign(key,
+//                                kSecPaddingPKCS1SHA1,
+//                                (const uint8_t *)[input bytes],
+//                                2048,
+//                                signature,
+//                                &signatureSize);
     
     //CHECK_CONDITION1(sanityCheck == noErr, @"Problem signing the SHA1 hash, OSStatus == %d.", sanityCheck );
     
