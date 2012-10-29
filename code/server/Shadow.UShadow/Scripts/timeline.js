@@ -1,0 +1,19 @@
+﻿var Timeline=function(container,date){this.daysPerMonth=[31,28,31,30,31,30,31,31,30,31,30,31];this.weekDays=["domingo","segunda","terça","quarta","quinta","sexta","sábado"];this.monthsOfYear=["Janeiro","Febreiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];this.dayNumbers={"domingo" : 0, "segunda" : 1, "terça" : 2, "quarta" : 3, "quinta" : 4, "sexta" : 5, "sábado" : 6};this.initialize=function(){this.isIE6=(jQuery.browser.msie&&jQuery.browser.version=="6.0");this.container=$("#"+container);if(!this.container.length){alert("can not locate container element \""+container+"\"!");return;} this.bubble=new Timeline.Bubble(this);this.date=(date)?date:new Date();this.readEvents();this.placeHolders=this.setupPlaceHolders();this.container.addClass("timeline");this.render();},this.readEvents=function(){this.events=[];var eventList=this.container.find("ul");var eventItems=eventList.find("li");for(var i=0;i0&&events[j-1].date>tmp.date;j--) events[j]=events[j-1];events[j]=tmp;} eventList.remove();} this.render=function(){this.placeHolders.arrows.empty();this.placeHolders.top.empty();this.placeHolders.bottom.empty();var monthRepresentation=this.getMonthRepresentation();for(var i=0;i
+"+data.name+"
+");bottomRow.append("
+"+data.number+"
+");nameEl=topRow.find("div:last");numbEl=bottomRow.find("div:last");if(data.events.length==0) return;var self=this;var enterClosure=function(e){self.onMouseEnter(e);};var leaveClosure=function(e){self.onMouseLeave(e);};nameEl.bind("mouseenter",data,enterClosure);numbEl.bind("mouseenter",data,enterClosure);nameEl.bind("mouseleave",data,leaveClosure);numbEl.bind("mouseleave",data,leaveClosure);} this.setupArrows=function(){var dateString=this.monthsOfYear[this.date.getMonth()]+" "+this.date.getFullYear();var html="";html+="
+" html+="
+" html+="
+"+dateString+"
+" html+="
+" html+="
+" this.placeHolders.arrows.append(html);var children=this.placeHolders.arrows.children();var self=this;$(children[0]).bind("click",this,function(){self.previousYear()});$(children[1]).bind("click",this,function(){self.previousMonth()});$(children[3]).bind("click",this,function(){self.nextMonth()});$(children[4]).bind("click",this,function(){self.nextYear()});} this.getEventsForDay=function(dayNumber){var result=[];for(var i=0;i
+");bottom.append("
+");this.container.append([arrows[0],top[0],bottom[0]]);return{arrows:arrows,top:top.find("ul:first"),bottom:bottom.find("ul:first")};} this.getMonthRepresentation=function(){var result=[];var numberOfDays=this.getNumberOfDaysInMonth(this.date);var firstDay=this.getFirstDayOfMonth(this.date);var finished=false;for(var i=0;i";html+="
+  ";html+="
+  ";html+="
+  ";timeline.container.after(html);this.container=$("#"+id);this.container.bind("mouseenter",this,this.onMouseEnter);this.container.bind("mouseleave",this,this.onMouseLeave);} this.onMouseEnter=function(event){event.data.stopHiding();} this.onMouseLeave=function(event){event.data.hide();} this.stopHiding=function(){if(this.goingOffHandle&&this.goingOffHandle!=null){clearTimeout(this.goingOffHandle);this.goingOffHandle=null;}} this.setContent=function(events){this.stopHiding();var html="";for(var i=0;i"+events[i].name+"
+  "+events[i].content+"
+
+  ";var midSection=$(this.container.children()[1]);midSection.empty();midSection.append(html);var titles=midSection.find(".event_title");titles.each(function(inx,element){$(element).bind("mouseenter",function(event){$(element).children(":first").animate({opacity:"toggle"},200);});$(element).bind("mouseleave",function(event){$(element).children(":first").animate({opacity:"hide"},200);});});} this.show=function(at){this.container.animate({opacity:"show"},250);this.container.animate({left:at-(this.container.outerWidth()/2)},300);} this.hide=function(){var self=this;this.goingOffHandle=setTimeout(function(){self.container.animate({opacity:"hide"},250);},700);} this.initialize();}

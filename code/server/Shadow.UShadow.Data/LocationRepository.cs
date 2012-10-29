@@ -46,7 +46,7 @@ namespace Shadow.UShadow.Data
 
       serviceContext.ResolveType = (unused) => typeof(Location);
 
-      IQueryable<Location> locations = (from entity in serviceContext.CreateQuery<Location>("locations") select entity);
+      IQueryable<Location> locations = (from entity in serviceContext.CreateQuery<Location>("locations") where entity.PositionRecoded >= DateTime.Today select entity);
       List<Location> songsList = locations.ToList<Location>();
 
       return songsList;

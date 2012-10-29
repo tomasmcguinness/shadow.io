@@ -2,6 +2,68 @@
   ViewBag.Title = "Index";
 }
 
+<script>
+
+
+</script>
+
+<style>
+  #timeline
+  {
+    position: relative;
+  }
+
+    #timeline div.selected
+    {
+      font-weight: bold;
+    }
+
+    #timeline div.days
+    {
+      position: absolute;
+      top: 0px;
+      font-size: 22px;
+    }
+
+     #timeline div.days div:hover
+    {
+       font-weight:bold;
+       cursor:pointer;
+    }
+
+      #timeline div.days div
+      {
+        float: left;
+        margin: 5px;
+      }
+
+    #timeline div.months
+    {
+      position: absolute;
+      top: 30px;
+    }
+
+      #timeline div.months div
+      {
+        float: left;
+        margin: 5px;
+        font-size: 22px;
+      }
+
+    #timeline div.years
+    {
+      position: absolute;
+      top: 60px;
+    }
+
+      #timeline div.years div
+      {
+        float: left;
+        margin: 5px;
+        font-size: 22px;
+      }
+</style>
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
 
@@ -9,11 +71,70 @@
   <h1>Locations <small>your location history</small></h1>
 </div>
 
-<h1>
-  You are currently located: <span id="currentLocation"></span>
+<h1>You are currently located: <span id="currentLocation"></span>
 </h1>
 
-<div id="map" style="position: relative; width: 1170px; height: 700px;"></div>
+<div id="map" style="position: relative; width: 1170px; height: 600px;">
+</div>
+
+<div id="timeline">
+  <div class="days">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+    <div>05</div>
+    <div>06</div>
+    <div>07</div>
+    <div>08</div>
+    <div>09</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+    <div>13</div>
+    <div>14</div>
+    <div>15</div>
+    <div>16</div>
+    <div>17</div>
+    <div>18</div>
+    <div>19</div>
+    <div>20</div>
+    <div>21</div>
+    <div>22</div>
+    <div>23</div>
+    <div>24</div>
+    <div>25</div>
+    <div>26</div>
+    <div>27</div>
+    <div>28</div>
+    <div class="selected">29</div>
+    <div>30</div>
+    <div>31</div>
+  </div>
+  <div class="months">
+    <div>January</div>
+    <div>February</div>
+    <div>March</div>
+    <div>April</div>
+    <div>May</div>
+    <div>June</div>
+    <div>July</div>
+    <div>August</div>
+    <div>September</div>
+    <div class="selected">October</div>
+    <div>November</div>
+    <div>December</div>
+  </div>
+  <div class="years">
+    <div>2008</div>
+    <div>2009</div>
+    <div>2010</div>
+    <div>2011</div>
+    <div class="selected">2012</div>
+    <div>2013</div>
+    <div>2014</div>
+  </div>
+</div>
 
 <script>
   var map = new Microsoft.Maps.Map(document.getElementById("map"), { credentials: "AmtskL0EJJszzVRc3amsO0sHaWXOKrR8TEBvrNPKcvwNkjskEtYYTPfwc7-SLCWn" });
