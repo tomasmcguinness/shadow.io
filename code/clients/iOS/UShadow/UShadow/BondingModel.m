@@ -173,9 +173,6 @@
     NSData *certData = [NSData dataWithContentsOfFile:fileName];
     NSLog(@"Loaded NSData [%d bytes]", [certData length]);
     
-    //SecCertificateRef cert = SecCertificateCreateWithData(kCFAllocatorDefault, (CFDataRef)certData);
-    //NSLog(@"Certificate loaded with subject: [%@]", SecCertificateCopySubjectSummary(cert));
-    
     CFDataRef inPKCS12Data = (CFDataRef)certData;
     
     SecIdentityRef myIdentity;
@@ -189,6 +186,8 @@
     NSData *signedData = [self signData:[data dataUsingEncoding:NSUTF8StringEncoding] key:publicKey];
     
     NSLog(@"Signed Data [%@]", signedData);
+    
+    [request setHTTPBody:signedData];
     
     self.connection = [[TaggedNSURLConnection alloc] initWithRequest:request delegate:self];
     self.connection.tag = 2;
@@ -251,8 +250,9 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
     OSStatus sanityCheck = noErr;
     NSData * signedHash = nil;
     
-    char inputString = (char)[input bytes];
-    //char inputString = *"Company Confidential";   // I want this input Text to appear on PDF file
+    //NSString *str = [[NSString alloc] initWithBytes:[input bytes] length:input.length encoding:NSUTF8StringEncoding];
+    //char inputString = (char)[input bytes];
+    char inputString = *"Company Confidential";   // I want this input Text to appear on PDF file
     
     int len = strlen(&inputString);
     
@@ -267,11 +267,9 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
     signedBytes = malloc( signedBytesSize * sizeof(uint8_t) );
     memset((void *)signedBytes, 0x0, signedBytesSize);
     
-    
-    
     sanityCheck = SecKeyRawSign(key,
                                 kSecPaddingPKCS1,
-                                (const uint8_t *)&inputString,
+                                (const uint8_t *)[input bytes],
                                 CC_SHA1_DIGEST_LENGTH,
                                 (uint8_t *)signedBytes,
                                 &signedBytesSize);

@@ -16,7 +16,29 @@
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"gzip" forHTTPHeaderField:@"accept-encoding"];
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@/cert.p12", documentsDirectory];
+    
+    NSData *certData = [NSData dataWithContentsOfFile:fileName];
+    NSLog(@"Loaded NSData [%d bytes]", [certData length]);
+    
+    CFDataRef inPKCS12Data = (CFDataRef)certData;
+    
+    SecIdentityRef myIdentity;
+    SecTrustRef myTrust;
+    OSStatus status = extractIdentityAndTrust(inPKCS12Data, &myIdentity, &myTrust);
+    
+    SecKeyRef publicKey;
+    
+    status = SecIdentityCopyPrivateKey (myIdentity, &publicKey);
+    
+    NSData *signedData = [self signData:[a dataUsingEncoding:NSUTF8StringEncoding] key:publicKey];
+    
+    NSLog(@"Signed Data [%@]", signedData);
+    
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     

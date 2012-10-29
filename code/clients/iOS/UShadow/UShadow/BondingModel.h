@@ -11,7 +11,6 @@
 
 @protocol BondingModelDelegate <NSObject>
 
-- (void)bondingStarted;
 - (void)bondingProgressUpdated;
 - (void)bondingComplete;
 
