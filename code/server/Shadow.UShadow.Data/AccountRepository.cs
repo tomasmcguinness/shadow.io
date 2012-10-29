@@ -95,7 +95,7 @@ namespace Shadow.UShadow.Data
             Set(false);
         }
 
-        public bool IsAuthorized { get { return Get().Authorized; } }
+        public bool IsAuthorized { get { Account a = Get(); return a.Authorized && DateTime.Now.Subtract(a.Generated).TotalMinutes < 15; } }
 
         public Guid CurrentSessionId { get { return Get().AuthorizationCode; } }
     }

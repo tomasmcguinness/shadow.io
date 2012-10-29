@@ -35,7 +35,7 @@ namespace Shadow.UShadow.Cloud.Worker
                 ConsumerSecret = "DfOmNZOrhN31vuEDpm10lxkSSB1MfjVA4Y9oPzSK0gc"
             };
 
-            myStream.StreamUrl = "https://userstream.twitter.com/1.1/user.json?with=user";
+            myStream.StreamUrl = "https://userstream.twitter.com/1.1/user.json?with=user&track=!Shadow";
 
             // Starting the stream by specifying credentials thanks to the Token
             myStream.StartStream(token);
