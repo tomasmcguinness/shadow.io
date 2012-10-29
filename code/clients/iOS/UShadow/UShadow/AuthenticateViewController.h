@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ZBarSDK.h"
+#import "AuthenticationModel.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface AuthenticateViewController : UIViewController<ZBarReaderDelegate>
+
+@property (nonatomic, strong) AuthenticationModel *model;
 
 @end

@@ -14,12 +14,17 @@
 
 @implementation AuthenticateViewController
 
+@synthesize model;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    
+    if (self)
+    {
+        self.model = [[AuthenticationModel alloc] init];
     }
+    
     return self;
 }
 
@@ -45,18 +50,28 @@
 {
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
     reader.readerDelegate = self;
-    reader.sourceType=UIImagePickerControllerSourceTypeCamera;
-    [reader.scanner setSymbology: ZBAR_QRCODE
-                          config: ZBAR_CFG_ENABLE
-                              to: 0];
+    reader.sourceType = UIImagePickerControllerSourceTypeCamera;
     reader.readerView.zoom = 1.0;
     
     [self presentViewController:reader animated:YES completion:nil];
 }
 
-- (void) imagePickerController: (UIImagePickerController*)reader didFinishPickingMediaWithInfo: (NSDictionary*) info
+- (void) imagePickerController: (UIImagePickerController *)reader didFinishPickingMediaWithInfo: (NSDictionary *) info
 {
-    NSLog(@"Something detected...");
+    NSLog(@"Authorization code detected");
+    
+    id<NSFastEnumeration> results = [info objectForKey:ZBarReaderControllerResults];
+    ZBarSymbol *symbol = nil;
+    
+    for(symbol in results) break;
+    
+    NSString *textFromCode = symbol.data;
+    
+    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+    
+    [self.model sendAuthenticationCode:textFromCode];
+    
+    [reader dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

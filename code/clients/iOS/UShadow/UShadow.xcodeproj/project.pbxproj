@@ -23,6 +23,8 @@
 		2C164B3616391422006CCF7D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C164B3516391422006CCF7D /* libiconv.dylib */; };
 		2C164B3D16392401006CCF7D /* BondingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C164B3C16392401006CCF7D /* BondingViewController.m */; };
 		2C164B4116392500006CCF7D /* BondingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C164B4016392500006CCF7D /* BondingModel.m */; };
+		2C1CF01F163E635E00CA7940 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1CF01E163E635E00CA7940 /* CoreAudio.framework */; };
+		2C1CF022163E639500CA7940 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1CF021163E639500CA7940 /* AudioToolbox.framework */; };
 		2C2F6CD5160A30DD000E261B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD4160A30DD000E261B /* UIKit.framework */; };
 		2C2F6CD7160A30DD000E261B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD6160A30DD000E261B /* Foundation.framework */; };
 		2C2F6CD9160A30DD000E261B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2F6CD8160A30DD000E261B /* CoreGraphics.framework */; };
@@ -100,6 +102,8 @@
 		2C164B3C16392401006CCF7D /* BondingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondingViewController.m; sourceTree = "<group>"; };
 		2C164B3F16392500006CCF7D /* BondingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondingModel.h; sourceTree = "<group>"; };
 		2C164B4016392500006CCF7D /* BondingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondingModel.m; sourceTree = "<group>"; };
+		2C1CF01E163E635E00CA7940 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		2C1CF021163E639500CA7940 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2C2F6CD0160A30DD000E261B /* UShadow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UShadow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2F6CD4160A30DD000E261B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2C2F6CD6160A30DD000E261B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -138,6 +142,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C1CF022163E639500CA7940 /* AudioToolbox.framework in Frameworks */,
+				2C1CF01F163E635E00CA7940 /* CoreAudio.framework in Frameworks */,
 				2C41406A163C526F009B59F6 /* Security.framework in Frameworks */,
 				2C164B3616391422006CCF7D /* libiconv.dylib in Frameworks */,
 				2C164B3416391418006CCF7D /* QuartzCore.framework in Frameworks */,
@@ -263,6 +269,8 @@
 		2C2F6CC5160A30DD000E261B = {
 			isa = PBXGroup;
 			children = (
+				2C1CF021163E639500CA7940 /* AudioToolbox.framework */,
+				2C1CF01E163E635E00CA7940 /* CoreAudio.framework */,
 				2C414069163C526F009B59F6 /* Security.framework */,
 				2C164B3516391422006CCF7D /* libiconv.dylib */,
 				2C164B3316391418006CCF7D /* QuartzCore.framework */,
