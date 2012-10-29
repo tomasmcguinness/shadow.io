@@ -229,29 +229,81 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
 
 - (NSData *)signData:(NSData *)input key:(SecKeyRef)key
 {
+    NSLog(@"Signing [%@]", [[NSString alloc] initWithBytes:[input bytes] length:input.length encoding:NSUTF8StringEncoding]);
+    NSLog(@"Length [%d]", input.length);
+    
+    
+    
+#define CC_SHA1_DIGEST_LENGTH 50
+    
+#define kTypeOfWrapPadding      kSecPaddingPKCS1
+    
+    //start of code that extracts identity and evaluates certificate trust
+    
+    // ----some code
+    // ----some code
+    
+    // End of code that extracts identity and evaluate certificate trust
+    
+    uint8_t *plainBuffer;
+    uint8_t * signedBytes = NULL;
+    size_t signedBytesSize = 0;
     OSStatus sanityCheck = noErr;
     NSData * signedHash = nil;
     
-    uint8_t * signedBytes = NULL;
-    uint8_t * signature = NULL;
-    size_t signatureSize = SecKeyGetBlockSize(key);
+    char inputString = (char)[input bytes];
+    //char inputString = *"Company Confidential";   // I want this input Text to appear on PDF file
+    
+    int len = strlen(&inputString);
+    
+    plainBuffer = (uint8_t *)calloc(len, sizeof(uint8_t));
+    
+    strncpy( (char *)plainBuffer, &inputString, len);
+    
+    signedBytesSize = SecKeyGetBlockSize(key);
     
     // Malloc a buffer to hold signature.
-    signature = malloc( signatureSize );
-    memset((void *)signature, 0x0, signatureSize);
+    
+    signedBytes = malloc( signedBytesSize * sizeof(uint8_t) );
+    memset((void *)signedBytes, 0x0, signedBytesSize);
+    
+    
     
     sanityCheck = SecKeyRawSign(key,
-                                kSecPaddingPKCS1SHA1,
-                                (const uint8_t *)&input,
-                                10,
-                                (uint8_t *)signature,
-                                &signatureSize
-                                );
+                                kSecPaddingPKCS1,
+                                (const uint8_t *)&inputString,
+                                CC_SHA1_DIGEST_LENGTH,
+                                (uint8_t *)signedBytes,
+                                &signedBytesSize);
     
-    signedHash = [NSData dataWithBytes:(const void *)signedBytes length:(NSUInteger)signatureSize];
+    signedHash = [NSData dataWithBytes:(const void *)signedBytes length:(NSUInteger)signedBytesSize];
     
-    NSLog(@"%@", signedHash);
+    NSLog(@"signed hash is=%@", signedHash);
     
+    
+    
+//    OSStatus sanityCheck = noErr;
+//    NSData * signedHash = nil;
+//    
+//    uint8_t * signedBytes = NULL;
+//    uint8_t * signature = NULL;
+//    size_t signatureSize = SecKeyGetBlockSize(key);
+//    
+//    // Malloc a buffer to hold signature.
+//    signature = malloc( signatureSize );
+//    memset((void *)signature, 0x0, signatureSize);
+//    
+//    sanityCheck = SecKeyRawSign(key,
+//                                kSecPaddingNone,
+//                                (const uint8_t *)&input,
+//                                (size_t)input.length,
+//                                (uint8_t *)signature,
+//                                &signatureSize);
+//    
+//    signedHash = [NSData dataWithBytes:(const void *)signedBytes length:(NSUInteger)signatureSize];
+//    
+//    NSLog(@"%@", signedHash);
+//    
     //[Base64 initialize];
     //NSString *b64EncStr = [Base64 encode:signedHash];
     //NSLog(@"%@", b64EncStr);
@@ -271,8 +323,8 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
     //CHECK_CONDITION1(sanityCheck == noErr, @"Problem signing the SHA1 hash, OSStatus == %d.", sanityCheck );
     
     // Build up signed SHA1 blob.
-    signedHash = [NSData dataWithBytes:(const void *)signature length:(NSUInteger)signatureSize];
-    if (signature) free(signature);
+    //signedHash = [NSData dataWithBytes:(const void *)signature length:(NSUInteger)signatureSize];
+    //if (signature) free(signature);
     
     return signedHash;
 }
