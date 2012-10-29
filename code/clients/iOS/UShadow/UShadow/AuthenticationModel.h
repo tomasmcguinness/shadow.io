@@ -10,4 +10,6 @@
 
 @interface AuthenticationModel : NSObject
 
+- (void)sendAuthenticationCode:(NSString *)detectedCode;
+
 @end
