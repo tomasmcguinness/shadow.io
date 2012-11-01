@@ -227,7 +227,7 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
     NSLog(@"Signing [%@]", [[NSString alloc] initWithBytes:[input bytes] length:input.length encoding:NSUTF8StringEncoding]);
     NSLog(@"Length [%d]", input.length);
     
-#define CC_SHA1_DIGEST_LENGTH 50
+//#define CC_SHA1_DIGEST_LENGTH 50
     
     // End of code that extracts identity and evaluate certificate trust
     
@@ -246,7 +246,12 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
 //    plainBuffer = (uint8_t *)calloc(len, sizeof(uint8_t));
 //    
 //    strncpy( (char *)plainBuffer, &inputString, len);
-//    
+    
+    // Hash the data before signing it.
+    //
+    unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
+    CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+  
     signedBytesSize = SecKeyGetBlockSize(key);
     signedBytes = malloc( signedBytesSize * sizeof(uint8_t) );
     memset((void *)signedBytes, 0x0, signedBytesSize);
