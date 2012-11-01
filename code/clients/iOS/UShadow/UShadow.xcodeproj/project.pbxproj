@@ -45,6 +45,8 @@
 		2C414064163C1CC6009B59F6 /* TaggedNSURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C414063163C1CC6009B59F6 /* TaggedNSURLConnection.m */; };
 		2C414068163C4DB0009B59F6 /* AuthenticationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C414067163C4DB0009B59F6 /* AuthenticationModel.m */; };
 		2C41406A163C526F009B59F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C414069163C526F009B59F6 /* Security.framework */; };
+		2C9EE848164000F9005DB2E2 /* Roomr3-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9EE847164000F9005DB2E2 /* Roomr3-57.png */; };
+		2C9EE84A16400125005DB2E2 /* Roomr3-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9EE84916400125005DB2E2 /* Roomr3-114.png */; };
 		2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */; };
 		2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA0B50216314016008AB5E5 /* CoreLocation.framework */; };
 		2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */; };
@@ -130,6 +132,8 @@
 		2C414066163C4DB0009B59F6 /* AuthenticationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationModel.h; sourceTree = "<group>"; };
 		2C414067163C4DB0009B59F6 /* AuthenticationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationModel.m; sourceTree = "<group>"; };
 		2C414069163C526F009B59F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2C9EE847164000F9005DB2E2 /* Roomr3-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Roomr3-57.png"; path = "../../../../../QuickMeeting/iPhone/Icons/Roomr3-57.png"; sourceTree = "<group>"; };
+		2C9EE84916400125005DB2E2 /* Roomr3-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Roomr3-114.png"; path = "../../../../../QuickMeeting/iPhone/Icons/Roomr3-114.png"; sourceTree = "<group>"; };
 		2CA0B4FE16313F7B008AB5E5 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		2CA0B50216314016008AB5E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -269,6 +273,8 @@
 		2C2F6CC5160A30DD000E261B = {
 			isa = PBXGroup;
 			children = (
+				2C9EE84916400125005DB2E2 /* Roomr3-114.png */,
+				2C9EE847164000F9005DB2E2 /* Roomr3-57.png */,
 				2C1CF021163E639500CA7940 /* AudioToolbox.framework */,
 				2C1CF01E163E635E00CA7940 /* CoreAudio.framework */,
 				2C414069163C526F009B59F6 /* Security.framework */,
@@ -437,6 +443,8 @@
 				2C164B271639136A006CCF7D /* zbar-help.html in Resources */,
 				2C164B281639136A006CCF7D /* zbar-helpicons.png in Resources */,
 				2C164B291639136A006CCF7D /* zbar-samples.png in Resources */,
+				2C9EE848164000F9005DB2E2 /* Roomr3-57.png in Resources */,
+				2C9EE84A16400125005DB2E2 /* Roomr3-114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
