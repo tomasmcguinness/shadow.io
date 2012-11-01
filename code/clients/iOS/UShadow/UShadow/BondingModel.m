@@ -250,7 +250,10 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
     // Hash the data before signing it.
     //
     unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
-    CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+    
+    CC_SHA256(dataIn.bytes, dataIn.length,  macOut.mutableBytes);
+    
+    //CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
   
     signedBytesSize = SecKeyGetBlockSize(key);
     signedBytes = malloc( signedBytesSize * sizeof(uint8_t) );
