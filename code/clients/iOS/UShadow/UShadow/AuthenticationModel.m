@@ -12,28 +12,28 @@
 
 - (void)sendAuthenticationCode:(NSString *)detectedCode
 {
-    NSString *url = [NSString stringWithFormat:@"http://192.168.1.27/account/pushauthorizationcode?sessionId=%@", detectedCode];
+    NSString *url = [NSString stringWithFormat:@"http://ushadow.azurewebsites.net/account/pushauthorizationcode?sessionId=%@", detectedCode];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
 
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    //NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    NSString *fileName = [NSString stringWithFormat:@"%@/cert.p12", documentsDirectory];
+    //NSString *fileName = [NSString stringWithFormat:@"%@/cert.p12", documentsDirectory];
     
-    NSData *certData = [NSData dataWithContentsOfFile:fileName];
-    NSLog(@"Loaded NSData [%d bytes]", [certData length]);
+    //NSData *certData = [NSData dataWithContentsOfFile:fileName];
+    //NSLog(@"Loaded NSData [%d bytes]", [certData length]);
     
-    CFDataRef inPKCS12Data = (CFDataRef)certData;
+    //CFDataRef inPKCS12Data = (CFDataRef)certData;
     
-    SecIdentityRef myIdentity;
-    SecTrustRef myTrust;
-    OSStatus status = extractIdentityAndTrust(inPKCS12Data, &myIdentity, &myTrust);
+    ///SecIdentityRef myIdentity;
+    //SecTrustRef myTrust;
+    //OSStatus status = extractIdentityAndTrust(inPKCS12Data, &myIdentity, &myTrust);
     
-    SecKeyRef publicKey;
+    //SecKeyRef publicKey;
     
-    status = SecIdentityCopyPrivateKey (myIdentity, &publicKey);
+    //status = SecIdentityCopyPrivateKey (myIdentity, &publicKey);
     
     //NSData *signedData = [self signData:[detectedCode dataUsingEncoding:NSUTF8StringEncoding] key:publicKey];
     

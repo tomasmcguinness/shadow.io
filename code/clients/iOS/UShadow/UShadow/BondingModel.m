@@ -28,7 +28,7 @@
     
     // First step, verify the sms and code are valid.
     //
-    NSString *requestString = [NSString stringWithFormat:@"http://192.168.1.27/shadow/bonding?smsNumber=%@&code=%@", self.smsNumber, self.detectedCode];
+    NSString *requestString = [NSString stringWithFormat:@"http://ushadow.azurewebsites.net/shadow/bonding?smsNumber=%@&code=%@", self.smsNumber, self.detectedCode];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:requestString]];
     [request setHTTPMethod:@"POST"];
     
@@ -131,7 +131,7 @@
 
 - (void)requestCertificate
 {
-    NSString *requestString = [NSString stringWithFormat:@"http://192.168.1.27/shadow/bonding?smsNumber=%@&code=%@", self.smsNumber, self.detectedCode];
+    NSString *requestString = [NSString stringWithFormat:@"http://ushadow.azurewebsites.net/shadow/bonding?smsNumber=%@&code=%@", self.smsNumber, self.detectedCode];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:requestString]];
     [request setHTTPMethod:@"GET"];
     
@@ -155,7 +155,7 @@
     
     NSString *data = [NSString stringWithFormat:@"smsNumber=%@&code=%@", self.smsNumber, self.detectedCode];
     
-    NSString *requestString = [NSString stringWithFormat:@"http://192.168.1.27/shadow/bonding?%@",data];
+    NSString *requestString = [NSString stringWithFormat:@"http://ushadow.azurewebsites.net/shadow/bonding?%@",data];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:requestString]];
     [request setHTTPMethod:@"PUT"];
     
@@ -227,94 +227,31 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data, SecIdentityRef *outIden
     NSLog(@"Signing [%@]", [[NSString alloc] initWithBytes:[input bytes] length:input.length encoding:NSUTF8StringEncoding]);
     NSLog(@"Length [%d]", input.length);
     
-//#define CC_SHA1_DIGEST_LENGTH 50
-    
-    // End of code that extracts identity and evaluate certificate trust
-    
-    //uint8_t *plainBuffer;
     uint8_t * signedBytes = NULL;
     size_t signedBytesSize = 0;
     OSStatus sanityCheck = noErr;
     NSData * signedHash = nil;
     
-//    //NSString *str = [[NSString alloc] initWithBytes:[input bytes] length:input.length encoding:NSUTF8StringEncoding];
-//    //char inputString = (char)[input bytes];
-//    char inputString = *"Company Confidential";   // I want this input Text to appear on PDF file
-//    
-//    int len = strlen(&inputString);
-//    
-//    plainBuffer = (uint8_t *)calloc(len, sizeof(uint8_t));
-//    
-//    strncpy( (char *)plainBuffer, &inputString, len);
-    
     // Hash the data before signing it.
     //
-    unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
+    NSMutableData *hashedInput = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
+
+    CC_SHA256(input.bytes, input.length, hashedInput.mutableBytes);
     
-    CC_SHA256(dataIn.bytes, dataIn.length,  macOut.mutableBytes);
-    
-    //CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
-  
     signedBytesSize = SecKeyGetBlockSize(key);
     signedBytes = malloc( signedBytesSize * sizeof(uint8_t) );
     memset((void *)signedBytes, 0x0, signedBytesSize);
     
     sanityCheck = SecKeyRawSign(key,
-                                kSecPaddingPKCS1SHA1,
-                                (const uint8_t *)[input bytes],
-                                CC_SHA1_DIGEST_LENGTH,
+                                kSecPaddingPKCS1SHA256,
+                                (const uint8_t *)[hashedInput bytes],
+                                CC_SHA256_DIGEST_LENGTH,
                                 (uint8_t *)signedBytes,
                                 &signedBytesSize);
     
     signedHash = [NSData dataWithBytes:(const void *)signedBytes length:(NSUInteger)signedBytesSize];
     
     NSLog(@"signed hash is=%@", signedHash);
-    
-    
-    
-//    OSStatus sanityCheck = noErr;
-//    NSData * signedHash = nil;
-//    
-//    uint8_t * signedBytes = NULL;
-//    uint8_t * signature = NULL;
-//    size_t signatureSize = SecKeyGetBlockSize(key);
-//    
-//    // Malloc a buffer to hold signature.
-//    signature = malloc( signatureSize );
-//    memset((void *)signature, 0x0, signatureSize);
-//    
-//    sanityCheck = SecKeyRawSign(key,
-//                                kSecPaddingNone,
-//                                (const uint8_t *)&input,
-//                                (size_t)input.length,
-//                                (uint8_t *)signature,
-//                                &signatureSize);
-//    
-//    signedHash = [NSData dataWithBytes:(const void *)signedBytes length:(NSUInteger)signatureSize];
-//    
-//    NSLog(@"%@", signedHash);
-//    
-    //[Base64 initialize];
-    //NSString *b64EncStr = [Base64 encode:signedHash];
-    //NSLog(@"%@", b64EncStr);
-    //NSLog(@"String Length: %d", b64EncStr.length);
-    
-    
-//    // Sign the SHA1 hash.
-//    NSData *checksum = [self checksumSHA1:[input bytes] length:[input length]];
-//
-//    sanityCheck = SecKeyRawSign(key,
-//                                kSecPaddingPKCS1SHA1,
-//                                (const uint8_t *)[input bytes],
-//                                2048,
-//                                signature,
-//                                &signatureSize);
-    
-    //CHECK_CONDITION1(sanityCheck == noErr, @"Problem signing the SHA1 hash, OSStatus == %d.", sanityCheck );
-    
-    // Build up signed SHA1 blob.
-    //signedHash = [NSData dataWithBytes:(const void *)signature length:(NSUInteger)signatureSize];
-    //if (signature) free(signature);
     
     return signedHash;
 }

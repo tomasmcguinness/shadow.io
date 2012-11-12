@@ -47,7 +47,6 @@
 		2C41406A163C526F009B59F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C414069163C526F009B59F6 /* Security.framework */; };
 		2C9EE848164000F9005DB2E2 /* Roomr3-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9EE847164000F9005DB2E2 /* Roomr3-57.png */; };
 		2C9EE84A16400125005DB2E2 /* Roomr3-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9EE84916400125005DB2E2 /* Roomr3-114.png */; };
-		2CA09A8616426FC20090F743 /* libcommonCrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA09A8516426FC20090F743 /* libcommonCrypto.dylib */; };
 		2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */; };
 		2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA0B50216314016008AB5E5 /* CoreLocation.framework */; };
 		2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */; };
@@ -148,7 +147,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CA09A8616426FC20090F743 /* libcommonCrypto.dylib in Frameworks */,
 				2C1CF022163E639500CA7940 /* AudioToolbox.framework in Frameworks */,
 				2C1CF01F163E635E00CA7940 /* CoreAudio.framework in Frameworks */,
 				2C41406A163C526F009B59F6 /* Security.framework in Frameworks */,
