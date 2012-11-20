@@ -16,7 +16,8 @@ A Cyber Shadow is an individual's interface to the internet, providing the user 
 
 U-Shadows will provide the following services:
 
-- [Messaging](docs/messaging.md)
+- Identity Provider (OpenId)
+- Messaging
 - Searching
 - File Transfer
 - Identity assurance
@@ -28,5 +29,5 @@ A Cyber Node is nexus point of the internet. It could represent your home, a bar
 
 - Service discovery
 - Searching
-- [Messaging](docs/messaging.md)
+- Messaging
 

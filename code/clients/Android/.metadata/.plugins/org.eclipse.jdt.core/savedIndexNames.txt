@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Development\Personal\shadow.io\code\clients\Android\.metadata\.plugins\org.eclipse.jdt.core
+1472705834.index
+1665642232.index
+3579763016.index
+3352491446.index

@@ -1,0 +1,99 @@
+!SESSION 2012-10-31 13:21:49.569 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_01
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-10-31 13:23:23.692
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-10-31 13:23:23.693
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:23:23.693
+!MESSAGE Software being installed: Android Native Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.ndk.feature.group 20.0.3.v201208082019-427395)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:23:23.693
+!MESSAGE Missing requirement: Android Native Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.ndk.feature.group 20.0.3.v201208082019-427395) requires 'org.eclipse.cdt.feature.group 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-10-31 13:23:23.704
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-10-31 13:23:23.704
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:23:23.704
+!MESSAGE Software being installed: Android Native Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.ndk.feature.group 20.0.3.v201208082019-427395)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:23:23.704
+!MESSAGE Missing requirement: Android Native Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.ndk.feature.group 20.0.3.v201208082019-427395) requires 'org.eclipse.cdt.feature.group 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-10-31 13:23:35.134
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-10-31 13:23:35.135
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:23:35.135
+!MESSAGE Software being installed: Android Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.adt.feature.group 20.0.3.v201208082019-427395)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:23:35.135
+!MESSAGE Missing requirement: Android Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.adt.feature.group 20.0.3.v201208082019-427395) requires 'org.eclipse.wst.sse.core 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-10-31 13:23:35.138
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-10-31 13:23:35.138
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:23:35.138
+!MESSAGE Software being installed: Android Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.adt.feature.group 20.0.3.v201208082019-427395)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:23:35.138
+!MESSAGE Missing requirement: Android Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.adt.feature.group 20.0.3.v201208082019-427395) requires 'org.eclipse.wst.sse.core 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-10-31 13:26:16.487
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-10-31 13:26:16.487
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:26:16.487
+!MESSAGE Software being installed: Android Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.adt.feature.group 20.0.3.v201208082019-427395)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:26:16.487
+!MESSAGE Missing requirement: Android Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.adt.feature.group 20.0.3.v201208082019-427395) requires 'org.eclipse.wst.sse.core 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-10-31 13:26:16.494
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-10-31 13:26:16.494
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:26:16.494
+!MESSAGE Software being installed: Android Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.adt.feature.group 20.0.3.v201208082019-427395)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-10-31 13:26:16.495
+!MESSAGE Missing requirement: Android Development Tools 20.0.3.v201208082019-427395 (com.android.ide.eclipse.adt.feature.group 20.0.3.v201208082019-427395) requires 'org.eclipse.wst.sse.core 0.0.0' but it could not be found
+!SESSION 2012-10-31 13:29:57.265 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_01
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 2 2 2012-10-31 13:33:01.300
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
+!SESSION 2012-10-31 13:33:07.833 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_01
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 2 2 2012-10-31 13:33:36.967
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
+!SESSION 2012-10-31 14:04:38.267 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_01
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 2 2 2012-10-31 14:08:29.102
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
+!SESSION 2012-10-31 14:10:19.211 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_01
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-10-31 14:11:43.211
+!MESSAGE Failed to load properties file for project 'UShadow'
+
+!ENTRY org.eclipse.ui 2 2 2012-10-31 14:40:26.851
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
