@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "TaggedNSURLConnection.h"
+#include <CommonCrypto/CommonDigest.h>
+#include <CommonCrypto/CommonHMAC.h>
 
 @protocol BondingModelDelegate <NSObject>
 
-- (void)bondingStarted;
 - (void)bondingProgressUpdated;
 - (void)bondingComplete;
 

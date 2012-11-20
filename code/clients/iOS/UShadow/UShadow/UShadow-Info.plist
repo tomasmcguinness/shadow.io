@@ -6,6 +6,37 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>${PRODUCT_NAME}</string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>CFBundleDocumentTypes</key>
+<array>
+
+<dict>
+<key>CFBundleTypeExtensions</key>
+<array>
+<string>pdf</string>
+</array>
+<key>LSItemContentTypes</key>
+<array>
+<string>com.adobe.pdf</string>
+</array>
+<key>CFBundleTypeName</key>
+<string>PDF  Document</string>
+</dict>
+
+<dict>
+<key>CFBundleTypeExtensions</key>
+<array>
+<string>gif</string>
+</array>
+<key>LSItemContentTypes</key>
+<array>
+<string>com.compuserve.gif</string>
+</array>
+<key>CFBundleTypeName</key>
+<string>Gif</string>
+</dict>
+</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>

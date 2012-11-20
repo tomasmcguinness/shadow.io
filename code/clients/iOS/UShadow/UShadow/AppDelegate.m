@@ -28,10 +28,6 @@
     self.locationManager = [[LocationManager alloc] init];
     [self.locationManager trackUsersLocation];
     
-    //self.locationManager = [[CLLocationManager alloc] init];
-    //self.locationManager.delegate = self;
-    //[self.locationManager startMonitoringSignificantLocationChanges];
-    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
     UITabBarController *rootTabBarController = [[UITabBarController alloc] init];

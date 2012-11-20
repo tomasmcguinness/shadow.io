@@ -30,6 +30,7 @@
     
     self.navigationItem.title = @"Bonding...";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
@@ -42,11 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)bondingStarted
-{
-    
-}
-
 - (void)bondingProgressUpdated
 {
     [self.tableView reloadData];
@@ -54,7 +50,17 @@
 
 - (void)bondingComplete
 {
+        [self.navigationItem.rightBarButtonItem setEnabled:YES];
+}
+
+- (void)next
+{
     
+}
+
+- (void)done
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
