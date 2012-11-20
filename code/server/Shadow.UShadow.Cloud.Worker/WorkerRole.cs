@@ -8,8 +8,6 @@ using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.StorageClient;
-using Tweetinvi;
-using oAuthConnection;
 
 namespace Shadow.UShadow.Cloud.Worker
 {

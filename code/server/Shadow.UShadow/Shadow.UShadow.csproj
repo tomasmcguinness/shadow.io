@@ -226,6 +226,7 @@
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\NodeController.cs" />
+    <Compile Include="Controllers\OpenIdController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\RootController.cs" />
