@@ -11,6 +11,8 @@ Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Shadow.UShadow.Cloud", "Sha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shadow.UShadow.Cloud.Worker", "Shadow.UShadow.Cloud.Worker\Shadow.UShadow.Cloud.Worker.csproj", "{366C2980-55B7-4B1A-AB7F-98FA28C9B5EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shadow.Testing.RP", "Shadow.Testing.RP\Shadow.Testing.RP.csproj", "{1A9A763E-B96E-438C-82A4-E43FBCEB80C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{366C2980-55B7-4B1A-AB7F-98FA28C9B5EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{366C2980-55B7-4B1A-AB7F-98FA28C9B5EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{366C2980-55B7-4B1A-AB7F-98FA28C9B5EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A9A763E-B96E-438C-82A4-E43FBCEB80C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A9A763E-B96E-438C-82A4-E43FBCEB80C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A9A763E-B96E-438C-82A4-E43FBCEB80C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A9A763E-B96E-438C-82A4-E43FBCEB80C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

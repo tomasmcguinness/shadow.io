@@ -1,0 +1,19 @@
+2012-11-26 14:57:07,057 (GMT+0) [21] INFO  DotNetOpenAuth - DotNetOpenAuth.Core, Version=4.1.3.12303, Culture=neutral, PublicKeyToken=2780ccd10d57b246 (official)
+2012-11-26 14:57:07,072 (GMT+0) [21] INFO  DotNetOpenAuth - Reporting will use isolated storage with scope: User, Domain, Assembly
+2012-11-26 14:57:07,120 (GMT+0) [21] DEBUG DotNetOpenAuth.OpenId - .NET Uri class path compression overridden.
+2012-11-26 14:57:07,155 (GMT+0) [21] DEBUG DotNetOpenAuth.Http - HTTP GET http://localhost:3000/openid
+2012-11-26 14:57:07,179 (GMT+0) [21] DEBUG DotNetOpenAuth.Yadis - An XRDS response was received from GET at user-supplied identifier.
+2012-11-26 14:57:07,187 (GMT+0) [21] ERROR DotNetOpenAuth.Yadis - Error while parsing the XRDS document.  Falling back to HTML discovery.
+System.Xml.XmlException: Unexpected XML declaration. The XML declaration must be the first node in the document, and no white space characters are allowed to appear before it. Line 3, position 3.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+   at System.Xml.XmlTextReaderImpl.ParsePI(StringBuilder piInDtdStringBuilder)
+   at System.Xml.XmlTextReaderImpl.ParseDocumentContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XPath.XPathDocument.LoadFromReader(XmlReader reader, XmlSpace space)
+   at System.Xml.XPath.XPathDocument..ctor(TextReader textReader)
+   at DotNetOpenAuth.Xrds.XrdsDocument..ctor(String xml)
+   at DotNetOpenAuth.OpenId.UriDiscoveryService.Discover(Identifier identifier, IDirectWebRequestHandler requestHandler, Boolean& abortDiscoveryChain)
+2012-11-26 14:57:07,214 (GMT+0) [21] DEBUG DotNetOpenAuth.Yadis - HTML discovery failed to find any endpoints.
+2012-11-26 14:57:07,225 (GMT+0) [21] INFO  DotNetOpenAuth.Yadis - Performing discovery on user-supplied identifier: http://localhost:3000/openid
+2012-11-26 14:57:07,228 (GMT+0) [21] DEBUG DotNetOpenAuth.Yadis - Filtering and sorting of endpoints did not affect the list.
