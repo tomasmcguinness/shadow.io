@@ -18,6 +18,8 @@
   <h1>Valid For <span id="counter">0:30</span> seconds</h1>
 </div>
 
+<button onclick="forceAuthorization()">Test Authorization</button>
+
 @section Scripts
 {
   <script>
@@ -48,8 +50,20 @@
         if (result) {
           document.location.href = unescape(getQuerystring("ReturnUrl"));
         }
-      })
-      ;
+      });
+    }
+
+    function forceAuthorization() {
+      $.ajax({
+        type: "POST",
+        url: "@Url.Action("PushAuthorizationCode")",
+        dataType: "JSON",
+        data: { sessionId: "@Model" }
+      }).done(function (result) {
+        if (result) {
+          document.location.href = unescape(getQuerystring("ReturnUrl"));
+        }
+      });
     }
 
     function getQuerystring(key, default_) {

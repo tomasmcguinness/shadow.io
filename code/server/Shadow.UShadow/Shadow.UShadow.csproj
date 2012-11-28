@@ -273,6 +273,7 @@
     <Content Include="Views\OpenId\xrds.cshtml" />
     <Content Include="Views\OpenId\Index.cshtml" />
     <Content Include="Views\OpenId\Provider.cshtml" />
+    <Content Include="Views\OpenId\AskUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,23 @@
+﻿@{
+  ViewBag.Title = "AskUser";
+}
+
+<div class="page-header">
+  <h1>Logging In <small>verify your identity to access your UShadow</small></h1>
+</div>
+
+<p>
+  Are you trying to log into <b>@ViewData["Realm"]</b>?
+</p>
+
+@using (Html.BeginForm("AskUserResponse", "OpenId"))
+{
+  @Html.AntiForgeryToken()
+  @Html.Hidden("confirmed", "false")
+
+  <div id="responseButtonsDiv">
+    <button class="btn btn-primary" type="submit" value="yes" onclick="document.getElementsByName('confirmed')[0].value = 'true'; return true;">
+      Allow Access</button>
+    <button class="btn btn-danger" type="submit" value="no">Deny Access</button>
+  </div>
+}

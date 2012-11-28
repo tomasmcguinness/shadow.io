@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
 
 namespace Shadow.UShadow.Controllers
 {
@@ -54,14 +55,15 @@ namespace Shadow.UShadow.Controllers
         var papeRequest = ProviderEndpoint.PendingRequest.GetExtension<PolicyRequest>();
         if (papeRequest != null && papeRequest.MaximumAuthenticationAge.HasValue)
         {
-          //TimeSpan timeSinceLogin = DateTime.UtcNow - this.FormsAuth.SignedInTimestampUtc.Value;
+          //TimeSpan timeSinceLogin = DateTime.UtcNow -  this.FormsAuth.SignedInTimestampUtc.Value;
           //if (timeSinceLogin > papeRequest.MaximumAuthenticationAge.Value)
-          //{
-          //  // The RP wants the user to have logged in more recently than he has.  
-          //  // We'll have to redirect the user to a login screen.
-          //  return this.RedirectToAction("LogOn", "Account", new { returnUrl = this.Url.Action("ProcessAuthRequest") });
-          //}
-          return RedirectToAction("Login");
+          {
+            // The RP wants the user to have logged in more recently than he has.  
+            // We'll have to redirect the user to a login screen.
+            return this.RedirectToAction("LogOn", "Account", new { returnUrl = this.Url.Action("ProcessAuthRequest") });
+          }
+
+          return RedirectToAction("LogOn", "Account");
         }
 
         return this.ProcessAuthRequest();
@@ -95,6 +97,61 @@ namespace Shadow.UShadow.Controllers
       }
 
       return this.RedirectToAction("AskUser");
+    }
+
+    /// <summary>
+    /// Displays a confirmation page.
+    /// </summary>
+    /// <returns>The response for the user agent.</returns>
+    [Authorize]
+    public ActionResult AskUser()
+    {
+      if (ProviderEndpoint.PendingRequest == null)
+      {
+        // Oops... precious little we can confirm without a pending OpenID request.
+        return this.RedirectToAction("Index", "Home");
+      }
+
+      // The user MAY have just logged in.  Try again to respond automatically to the RP if appropriate.
+      ActionResult response;
+      if (this.AutoRespondIfPossible(out response))
+      {
+        return response;
+      }
+
+      if (!ProviderEndpoint.PendingAuthenticationRequest.IsDirectedIdentity) // && !this.UserControlsIdentifier(ProviderEndpoint.PendingAuthenticationRequest))
+      {
+        return this.Redirect(this.Url.Action("LogOn", "Account", new { returnUrl = this.Request.Url }));
+      }
+
+      this.ViewData["Realm"] = ProviderEndpoint.PendingRequest.Realm;
+
+      return this.View();
+    }
+
+    [HttpPost, Authorize, ValidateAntiForgeryToken]
+    public ActionResult AskUserResponse(bool confirmed)
+    {
+      if (!ProviderEndpoint.PendingAuthenticationRequest.IsDirectedIdentity) // && !this.UserControlsIdentifier(ProviderEndpoint.PendingAuthenticationRequest))
+      {
+        // The user shouldn't have gotten this far without controlling the identifier we'd send an assertion for.
+        return new HttpStatusCodeResult((int)HttpStatusCode.BadRequest);
+      }
+
+      if (ProviderEndpoint.PendingAnonymousRequest != null)
+      {
+        ProviderEndpoint.PendingAnonymousRequest.IsApproved = confirmed;
+      }
+      else if (ProviderEndpoint.PendingAuthenticationRequest != null)
+      {
+        ProviderEndpoint.PendingAuthenticationRequest.IsAuthenticated = confirmed;
+      }
+      else
+      {
+        throw new InvalidOperationException("There's no pending authentication request!");
+      }
+
+      return this.SendAssertion();
     }
 
     /// <summary>
@@ -163,7 +220,7 @@ namespace Shadow.UShadow.Controllers
       {
         if (authReq.IsDirectedIdentity)
         {
-          authReq.LocalIdentifier = "tom";// Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
+          authReq.LocalIdentifier = "http://ushadow.azurewebsites.net/accounts/FCEA4D97-E9D1-470C-A5A9-4D48A76F84B2";// Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
         }
 
         if (!authReq.IsDelegatedIdentifier)
