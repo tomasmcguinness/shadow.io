@@ -17,6 +17,7 @@ namespace Shadow.UShadow.Controllers
   {
     internal static OpenIdProvider openIdProvider = new OpenIdProvider();
 
+    [OutputCache(Duration = 0)]
     public ActionResult Index()
     {
       if (Request.AcceptTypes.Contains("application/xrds+xml"))
@@ -29,6 +30,7 @@ namespace Shadow.UShadow.Controllers
       return View();
     }
 
+    [OutputCache(Duration = 0)]
     public ActionResult XRDS()
     {
       Response.ContentType = "application/xrds+xml";
