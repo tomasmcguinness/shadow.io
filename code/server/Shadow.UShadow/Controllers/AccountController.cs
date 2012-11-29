@@ -19,6 +19,11 @@ namespace Shadow.UShadow.Controllers
             respository = new AccountRepository();
         }
 
+        public ActionResult User(string id)
+        {
+            return RedirectToAction("xrds","OpenId");
+        }
+
         public ActionResult Logon()
         {
             Guid sessionId = Guid.NewGuid();

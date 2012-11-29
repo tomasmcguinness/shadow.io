@@ -1,9 +1,16 @@
 ﻿@{Layout = null; Response.ContentType = "application/xrds+xml";}<?xml version="1.0" encoding="UTF-8" ?>
-<xrds:xrds xmlns:xrds="xri://$xrds" xmlns="xri://$xrd*($v*2.0)">
+<xrds:XRDS xmlns:xrds="xri://$xrds" xmlns="xri://$xrd*($v*2.0)">
 <XRD>
 <Service priority="10">
-<Type>http://specs.openid.net/auth/2.0/server</Type>
+  @if(ViewData["OPIdentifier"] != null)
+  {
+    <Type>http://specs.openid.net/auth/2.0/server</Type>
+  }
+  else
+  {
+    <Type>http://specs.openid.net/auth/2.0/signon</Type>
+  }
 <URI>http://localhost:3000/openId/provider</URI>
 </Service>
 </XRD>
-</xrds:xrds>
+</xrds:XRDS>
