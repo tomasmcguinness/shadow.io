@@ -2,7 +2,7 @@
 <xrds:XRDS xmlns:xrds="xri://$xrds" xmlns="xri://$xrd*($v*2.0)">
 <XRD>
 <Service priority="10">
-  @if(ViewData["OPIdentifier"] != null)
+  @if (ViewData["OPIdentifier"] != null)
   {
     <Type>http://specs.openid.net/auth/2.0/server</Type>
   }
@@ -10,7 +10,8 @@
   {
     <Type>http://specs.openid.net/auth/2.0/signon</Type>
   }
-<URI>http://localhost:3000/openId/provider</URI>
+@*<URI>http://localhost:3000/openId/provider</URI>*@
+  <URI>http://ushadow.azurewebsites.net/openId/provider</URI>
 </Service>
 </XRD>
 </xrds:XRDS>

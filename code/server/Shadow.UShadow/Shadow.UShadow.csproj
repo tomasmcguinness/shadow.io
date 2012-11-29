@@ -270,7 +270,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
     <Content Include="Views\Account\Logon.cshtml" />
-    <Content Include="Views\OpenId\xrds.cshtml" />
+    <Content Include="Views\Shared\xrds.cshtml" />
     <Content Include="Views\OpenId\Index.cshtml" />
     <Content Include="Views\OpenId\Provider.cshtml" />
     <Content Include="Views\OpenId\AskUser.cshtml" />

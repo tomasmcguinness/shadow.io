@@ -21,7 +21,7 @@ namespace Shadow.UShadow.Controllers
 
         public ActionResult User(string id)
         {
-            return RedirectToAction("xrds","OpenId");
+            return View("xrds");
         }
 
         public ActionResult Logon()
