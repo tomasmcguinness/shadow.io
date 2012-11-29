@@ -22,6 +22,8 @@ namespace Shadow.UShadow.Controllers
     {
       if (Request.AcceptTypes.Contains("application/xrds+xml"))
       {
+        Response.Clear();
+        Response.ClearHeaders();
         Response.ContentType = "application/xrds+xml";
         ViewData["OPIdentifier"] = true;
         return View("xrds");
@@ -33,6 +35,8 @@ namespace Shadow.UShadow.Controllers
     [OutputCache(Duration = 0)]
     public ActionResult XRDS()
     {
+      Response.ClearHeaders();
+      Response.Clear();
       Response.ContentType = "application/xrds+xml";
       ViewData["OPIdentifier"] = true;
       return View();
