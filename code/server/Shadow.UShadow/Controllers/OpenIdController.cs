@@ -226,7 +226,7 @@ namespace Shadow.UShadow.Controllers
       {
         if (authReq.IsDirectedIdentity)
         {
-          authReq.LocalIdentifier = "http://localhost:3000/account/user/FCEA4D97-E9D1-470C-A5A9-4D48A76F84B2";// Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
+          authReq.LocalIdentifier = "http://ushadow.azurewebsites.net/account/user/FCEA4D97-E9D1-470C-A5A9-4D48A76F84B2";// Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
         }
 
         if (!authReq.IsDelegatedIdentifier)
