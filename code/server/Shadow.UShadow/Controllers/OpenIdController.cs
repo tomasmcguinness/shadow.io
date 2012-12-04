@@ -10,6 +10,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Net;
+using Shadow.UShadow.Models;
 
 namespace Shadow.UShadow.Controllers
 {
@@ -40,6 +41,22 @@ namespace Shadow.UShadow.Controllers
       Response.ContentType = "application/xrds+xml";
       ViewData["OPIdentifier"] = true;
       return View();
+    }
+
+    [HttpPost]
+    public JsonResult CheckForAuthorization(Guid sessionId)
+    {
+      AuthenticationModel model = new AuthenticationModel();
+
+      var authorized = model.HasBeenAuthorized(sessionId);
+
+      if (authorized)
+      {
+        ActionResult result = SendAssertion();
+        return result;
+      }
+
+      return Json(authorized);
     }
 
     [ValidateInput(false)]
@@ -109,7 +126,7 @@ namespace Shadow.UShadow.Controllers
     /// Displays a confirmation page.
     /// </summary>
     /// <returns>The response for the user agent.</returns>
-    [Authorize]
+    //[Authorize]
     public ActionResult AskUser()
     {
       if (ProviderEndpoint.PendingRequest == null)
@@ -120,6 +137,7 @@ namespace Shadow.UShadow.Controllers
 
       // The user MAY have just logged in.  Try again to respond automatically to the RP if appropriate.
       ActionResult response;
+
       if (this.AutoRespondIfPossible(out response))
       {
         return response;
@@ -132,7 +150,10 @@ namespace Shadow.UShadow.Controllers
 
       this.ViewData["Realm"] = ProviderEndpoint.PendingRequest.Realm;
 
-      return this.View();
+      AuthenticationModel authModel = new AuthenticationModel();
+      Guid key = authModel.RegisterAuthenticationRequest(ProviderEndpoint.PendingRequest.Realm, this.Request.UserHostAddress);
+
+      return this.View(key);
     }
 
     [HttpPost, Authorize, ValidateAntiForgeryToken]
@@ -274,86 +295,5 @@ namespace Shadow.UShadow.Controllers
 
       return openIdProvider.PrepareResponse(pendingRequest).AsActionResult();
     }
-
-    /*
-    public ActionResult Provider()
-    {
-      IRequest request = openIdProvider.GetRequest();
-
-      ProviderEndpoint.PendingRequest = (IHostProcessedRequest)request;
-
-      var pendingRequest = ProviderEndpoint.PendingRequest;
-      var authReq = pendingRequest as DotNetOpenAuth.OpenId.Provider.IAuthenticationRequest;
-      var anonReq = pendingRequest as IAnonymousRequest;
-      ProviderEndpoint.PendingRequest = null; // clear session static so we don't do this again
-      if (pendingRequest == null)
-      {
-        throw new InvalidOperationException("There's no pending authentication request!");
-      }
-
-      // Set safe defaults if somehow the user ended up (perhaps through XSRF) here before electing to send data to the RP.
-      if (anonReq != null && !anonReq.IsApproved.HasValue)
-      {
-        anonReq.IsApproved = false;
-      }
-
-      if (authReq != null && !authReq.IsAuthenticated.HasValue)
-      {
-        authReq.IsAuthenticated = false;
-      }
-
-      if (authReq != null && authReq.IsAuthenticated.Value)
-      {
-        if (authReq.IsDirectedIdentity)
-        {
-          //authReq.LocalIdentifier = Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
-          authReq.LocalIdentifier = new Uri("Test");
-        }
-
-        if (!authReq.IsDelegatedIdentifier)
-        {
-          authReq.ClaimedIdentifier = authReq.LocalIdentifier;
-        }
-      }
-
-      // Respond to AX/sreg extension requests only on a positive result.
-      if ((authReq != null && authReq.IsAuthenticated.Value) ||
-        (anonReq != null && anonReq.IsApproved.Value))
-      {
-        // Look for a Simple Registration request.  When the AXFetchAsSregTransform behavior is turned on
-        // in the web.config file as it is in this sample, AX requests will come in as SReg requests.
-        var claimsRequest = pendingRequest.GetExtension<ClaimsRequest>();
-        if (claimsRequest != null)
-        {
-          var claimsResponse = claimsRequest.CreateResponse();
-
-          // This simple respond to a request check may be enhanced to only respond to an individual attribute
-          // request if the user consents to it explicitly, in which case this response extension creation can take
-          // place in the confirmation page action rather than here.
-          if (claimsRequest.Email != DemandLevel.NoRequest)
-          {
-            claimsResponse.Email = User.Identity.Name + "@dotnetopenauth.net";
-          }
-
-          pendingRequest.AddResponseExtension(claimsResponse);
-        }
-
-        // Look for PAPE requests.
-        var papeRequest = pendingRequest.GetExtension<PolicyRequest>();
-        if (papeRequest != null)
-        {
-          var papeResponse = new PolicyResponse();
-          if (papeRequest.MaximumAuthenticationAge.HasValue)
-          {
-            papeResponse.AuthenticationTimeUtc = DateTime.UtcNow;
-          }
-
-          pendingRequest.AddResponseExtension(papeResponse);
-        }
-      }
-
-      return openIdProvider.PrepareResponse(pendingRequest).AsActionResult();
-    }
-     */
   }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Guid
+@{
   ViewBag.Title = "AskUser";
 }
 
@@ -7,17 +8,88 @@
 </div>
 
 <p>
-  Are you trying to log into <b>@ViewData["Realm"]</b>?
+  Are you trying to log into <b>@ViewData["Realm"]</b>? If you are, just scan this
+  QR Code with the UShadow iPhone app to continue.
 </p>
 
-@using (Html.BeginForm("AskUserResponse", "OpenId"))
+@*@using (Html.BeginForm("AskUserResponse", "OpenId"))
 {
   @Html.AntiForgeryToken()
   @Html.Hidden("confirmed", "false")
 
-  <div id="responseButtonsDiv">
+  *@
+
+<div style="width: 500px; height: 500px; margin-left: auto; margin-right: auto; text-align: center;">
+  @{
+    var googleQr = new GoogleQRGenerator.GoogleQr(Model.ToString(), "400x400", true);  
+  }
+  <img id="qrImage" src="@googleQr.ToString()" /><br />
+  <h1>Valid For <span id="counter">0:30</span> seconds</h1>
+</div>
+
+@*<div id="responseButtonsDiv">
     <button class="btn btn-primary" type="submit" value="yes" onclick="document.getElementsByName('confirmed')[0].value = 'true'; return true;">
       Allow Access</button>
     <button class="btn btn-danger" type="submit" value="no">Deny Access</button>
-  </div>
+  </div>*@
+@*}*@
+
+@section Scripts
+{
+  <script>
+    var seconds = 30
+
+    function display() {
+      if (seconds <= -1) {
+        seconds = 0
+      }
+      else {
+        seconds -= 1
+        setTimeout("display()", 1000);
+        checkForAuthorization();
+      }
+
+      $("#counter").html(seconds);
+    }
+
+    display();
+
+    function checkForAuthorization(guid) {
+      $.ajax({
+        type: "POST",
+        url: "@Url.Action("CheckForAuthorization")",
+        dataType: "JSON",
+        data: { sessionId: "@Model" }
+      }).done(function (result) {
+        alert(result);
+        if (result) {
+          document.location.href = unescape(getQuerystring("ReturnUrl"));
+        }
+      });
+    }
+
+    function forceAuthorization() {
+      $.ajax({
+        type: "POST",
+        url: "@Url.Action("PushAuthorizationCode")",
+        dataType: "JSON",
+        data: { sessionId: "@Model" }
+      }).done(function (result) {
+        if (result) {
+          document.location.href = unescape(getQuerystring("ReturnUrl"));
+        }
+      });
+    }
+
+    function getQuerystring(key, default_) {
+      if (default_ == null) default_ = "";
+      key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+      var regex = new RegExp("[\\?&]" + key + "=([^&#]*)");
+      var qs = regex.exec(window.location.href);
+      if (qs == null)
+        return default_;
+      else
+        return qs[1];
+    }
+  </script>
 }

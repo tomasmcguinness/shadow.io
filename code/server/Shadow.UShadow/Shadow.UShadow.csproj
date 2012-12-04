@@ -235,6 +235,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthenticationModel.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\ShadowProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
