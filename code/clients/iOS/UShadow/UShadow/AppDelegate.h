@@ -12,6 +12,7 @@
 #import "LocationManager.h"
 #import "AuthenticateViewController.h"
 #import "BondingViewController.h"
+#import "AccountsViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 {

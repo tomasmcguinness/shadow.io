@@ -40,13 +40,20 @@
     UINavigationController *authNavCon = [[UINavigationController alloc] initWithRootViewController:authenticateController];
     authNavCon.tabBarItem.title = @"Authenticate";
     
-    rootTabBarController.viewControllers = [NSArray arrayWithObjects:navCon, authNavCon, nil];
+    AccountsViewController *accountsController = [[AccountsViewController alloc] init];
+    UINavigationController *accsNavCon = [[UINavigationController alloc] initWithRootViewController:accountsController];
+    accsNavCon.tabBarItem.title = @"Accounts";
+    
+    rootTabBarController.viewControllers = [NSArray arrayWithObjects:navCon, authNavCon, accsNavCon, nil];
     
     self.window.rootViewController = rootTabBarController;
     
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert];
+    
     return YES;
 }
 
@@ -94,7 +101,7 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    
+    NSLog(@"Notification Received!");
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
@@ -108,6 +115,19 @@
     [self.window.rootViewController presentViewController:bondingNavController animated:YES completion:nil];
     
     return TRUE;
+}
+
+#pragma mark - Remote Notification Registration
+
+// Delegation methods
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken
+{
+    const void *devTokenBytes = [devToken bytes];
+}
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
+{
+    NSLog(@"Error in registration. Error: %@", err);
 }
 
 #pragma mark - Core Data stack

@@ -50,6 +50,8 @@
 		2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */; };
 		2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA0B50216314016008AB5E5 /* CoreLocation.framework */; };
 		2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */; };
+		2CBCB2C4166DE24D00B11096 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2C3166DE24D00B11096 /* AccountsViewController.m */; };
+		2CBCB2C8166DE36900B11096 /* ApproveAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2C7166DE36900B11096 /* ApproveAccessViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +142,10 @@
 		2CA0B50216314016008AB5E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2CBAE6B81639AC4700B4AAB9 /* BondingProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondingProgressViewController.h; sourceTree = "<group>"; };
 		2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondingProgressViewController.m; sourceTree = "<group>"; };
+		2CBCB2C2166DE24D00B11096 /* AccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsViewController.h; sourceTree = "<group>"; };
+		2CBCB2C3166DE24D00B11096 /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsViewController.m; sourceTree = "<group>"; };
+		2CBCB2C6166DE36900B11096 /* ApproveAccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApproveAccessViewController.h; sourceTree = "<group>"; };
+		2CBCB2C7166DE36900B11096 /* ApproveAccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApproveAccessViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +188,10 @@
 		2C10EC191635BCD800DEFEBD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CBCB2C2166DE24D00B11096 /* AccountsViewController.h */,
+				2CBCB2C3166DE24D00B11096 /* AccountsViewController.m */,
+				2CBCB2C6166DE36900B11096 /* ApproveAccessViewController.h */,
+				2CBCB2C7166DE36900B11096 /* ApproveAccessViewController.m */,
 				2C164B2A16391392006CCF7D /* AuthenticateViewController.h */,
 				2C164B2B16391392006CCF7D /* AuthenticateViewController.m */,
 				2CBAE6B81639AC4700B4AAB9 /* BondingProgressViewController.h */,
@@ -493,6 +503,8 @@
 				2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */,
 				2C414064163C1CC6009B59F6 /* TaggedNSURLConnection.m in Sources */,
 				2C414068163C4DB0009B59F6 /* AuthenticationModel.m in Sources */,
+				2CBCB2C4166DE24D00B11096 /* AccountsViewController.m in Sources */,
+				2CBCB2C8166DE36900B11096 /* ApproveAccessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
