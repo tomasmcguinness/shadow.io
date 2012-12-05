@@ -13,9 +13,14 @@
   <div>
     @using (Html.BeginForm())
     {
+      <label>OpenID Provider</label>
       <input name="provider" value="http://localhost:3000/openid" />
       <button type="submit">Go</button>
     }
+
+    <p>
+      OpenID Status: [@ViewData["Authenticated"]]
+    </p>
   </div>
 </body>
 </html>

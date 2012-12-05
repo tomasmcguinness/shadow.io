@@ -12,12 +12,10 @@
   QR Code with the UShadow iPhone app to continue.
 </p>
 
-@*@using (Html.BeginForm("AskUserResponse", "OpenId"))
+@using (Html.BeginForm("AskUserResponse", "OpenId", FormMethod.Post, new { id = "AskUserResponse" }))
 {
   @Html.AntiForgeryToken()
-  @Html.Hidden("confirmed", "false")
-
-  *@
+}
 
 <div style="width: 500px; height: 500px; margin-left: auto; margin-right: auto; text-align: center;">
   @{
@@ -26,6 +24,8 @@
   <img id="qrImage" src="@googleQr.ToString()" /><br />
   <h1>Valid For <span id="counter">0:30</span> seconds</h1>
 </div>
+
+@Model.ToString()
 
 @*<div id="responseButtonsDiv">
     <button class="btn btn-primary" type="submit" value="yes" onclick="document.getElementsByName('confirmed')[0].value = 'true'; return true;">
@@ -56,22 +56,24 @@
 
     function checkForAuthorization(guid) {
       $.ajax({
-        type: "POST",
-        url: "@Url.Action("CheckForAuthorization")",
+        type: 'POST',
+        url: '@Url.Action("CheckForAuthorization")',
         dataType: "JSON",
         data: { sessionId: "@Model" }
       }).done(function (result) {
-        alert(result);
-        if (result) {
-          document.location.href = unescape(getQuerystring("ReturnUrl"));
+
+        console.log("Authorized: " + result.authorized);
+
+        if (result.authorized) {
+          $("#AskUserResponse").submit();
         }
       });
     }
 
     function forceAuthorization() {
       $.ajax({
-        type: "POST",
-        url: "@Url.Action("PushAuthorizationCode")",
+        type: 'POST',
+        url: '@Url.Action("PushAuthorizationCode")',
         dataType: "JSON",
         data: { sessionId: "@Model" }
       }).done(function (result) {

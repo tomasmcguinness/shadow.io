@@ -11,15 +11,16 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using Shadow.UShadow.Models;
+using System.Web.Security;
 
 namespace Shadow.UShadow.Controllers
 {
-  public class OpenIdController : Controller
+  public partial class OpenIdController : Controller
   {
     internal static OpenIdProvider openIdProvider = new OpenIdProvider();
 
     [OutputCache(Duration = 0)]
-    public ActionResult Index()
+    public virtual ActionResult Index()
     {
       if (Request.AcceptTypes.Contains("application/xrds+xml"))
       {
@@ -34,7 +35,7 @@ namespace Shadow.UShadow.Controllers
     }
 
     [OutputCache(Duration = 0)]
-    public ActionResult XRDS()
+    public virtual ActionResult XRDS()
     {
       Response.ClearHeaders();
       Response.Clear();
@@ -44,7 +45,8 @@ namespace Shadow.UShadow.Controllers
     }
 
     [HttpPost]
-    public JsonResult CheckForAuthorization(Guid sessionId)
+    [Authorize]
+    public virtual ActionResult CheckForAuthorization(Guid sessionId)
     {
       AuthenticationModel model = new AuthenticationModel();
 
@@ -52,17 +54,17 @@ namespace Shadow.UShadow.Controllers
 
       if (authorized)
       {
-        ActionResult result = SendAssertion();
-        return result;
+        return Json(new { authorized = true, url = Url.Action("Authorized") });
       }
 
-      return Json(authorized);
+      return Json(new { authorized = false });
     }
 
     [ValidateInput(false)]
-    public ActionResult Provider()
+    public virtual ActionResult Provider()
     {
       IRequest request = openIdProvider.GetRequest();
+
       if (request != null)
       {
         // Some requests are automatically handled by DotNetOpenAuth.  If this is one, go ahead and let it go.
@@ -89,6 +91,22 @@ namespace Shadow.UShadow.Controllers
           return RedirectToAction("LogOn", "Account");
         }
 
+        AuthenticationModel authModel = new AuthenticationModel();
+        string key = authModel.RegisterAuthenticationRequest(ProviderEndpoint.PendingRequest.Realm, this.Request.UserHostAddress).ToString();
+
+        FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, key, DateTime.Now, DateTime.Now.AddSeconds(30), true, key, FormsAuthentication.FormsCookiePath);
+        string encTicket = FormsAuthentication.Encrypt(ticket);
+        Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+        //var newTicket = new FormsAuthenticationTicket(1, key.ToString(), DateTime.UtcNow, DateTime.UtcNow.AddSeconds(30), true, key.ToString(), "/");
+
+        //HttpCookie authCookie = new HttpCookie("test")
+        //{
+        //  Value = FormsAuthentication.Encrypt(newTicket)
+        //};
+
+        //this.Response.SetCookie(authCookie);
+
         return this.ProcessAuthRequest();
       }
       else
@@ -98,7 +116,7 @@ namespace Shadow.UShadow.Controllers
       }
     }
 
-    public ActionResult ProcessAuthRequest()
+    public virtual ActionResult ProcessAuthRequest()
     {
       if (ProviderEndpoint.PendingRequest == null)
       {
@@ -127,7 +145,7 @@ namespace Shadow.UShadow.Controllers
     /// </summary>
     /// <returns>The response for the user agent.</returns>
     //[Authorize]
-    public ActionResult AskUser()
+    public virtual ActionResult AskUser()
     {
       if (ProviderEndpoint.PendingRequest == null)
       {
@@ -150,14 +168,15 @@ namespace Shadow.UShadow.Controllers
 
       this.ViewData["Realm"] = ProviderEndpoint.PendingRequest.Realm;
 
-      AuthenticationModel authModel = new AuthenticationModel();
-      Guid key = authModel.RegisterAuthenticationRequest(ProviderEndpoint.PendingRequest.Realm, this.Request.UserHostAddress);
+      HttpCookie authCookie = this.Request.Cookies[FormsAuthentication.FormsCookieName];
+      FormsAuthenticationTicket auth = FormsAuthentication.Decrypt(authCookie.Value);
+      Guid key = Guid.Parse(auth.UserData);
 
       return this.View(key);
     }
 
     [HttpPost, Authorize, ValidateAntiForgeryToken]
-    public ActionResult AskUserResponse(bool confirmed)
+    public virtual ActionResult AskUserResponse()
     {
       if (!ProviderEndpoint.PendingAuthenticationRequest.IsDirectedIdentity) // && !this.UserControlsIdentifier(ProviderEndpoint.PendingAuthenticationRequest))
       {
@@ -167,11 +186,11 @@ namespace Shadow.UShadow.Controllers
 
       if (ProviderEndpoint.PendingAnonymousRequest != null)
       {
-        ProviderEndpoint.PendingAnonymousRequest.IsApproved = confirmed;
+        ProviderEndpoint.PendingAnonymousRequest.IsApproved = true;
       }
       else if (ProviderEndpoint.PendingAuthenticationRequest != null)
       {
-        ProviderEndpoint.PendingAuthenticationRequest.IsAuthenticated = confirmed;
+        ProviderEndpoint.PendingAuthenticationRequest.IsAuthenticated = true;
       }
       else
       {
@@ -221,7 +240,7 @@ namespace Shadow.UShadow.Controllers
     /// Sends a positive or a negative assertion, based on how the pending request is currently marked.
     /// </summary>
     /// <returns>An MVC redirect result.</returns>
-    public ActionResult SendAssertion()
+    public virtual ActionResult SendAssertion()
     {
       var pendingRequest = ProviderEndpoint.PendingRequest;
       var authReq = pendingRequest as DotNetOpenAuth.OpenId.Provider.IAuthenticationRequest;
@@ -247,7 +266,8 @@ namespace Shadow.UShadow.Controllers
       {
         if (authReq.IsDirectedIdentity)
         {
-          authReq.LocalIdentifier = "http://ushadow.azurewebsites.net/account/user/FCEA4D97-E9D1-470C-A5A9-4D48A76F84B2";// Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
+          authReq.LocalIdentifier = "http://localhost:3000/account/user/FCEA4D97-E9D1-470C-A5A9-4D48A76F84B2";// Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
+          //authReq.LocalIdentifier = "http://ushadow.azurewebsites.net/account/user/FCEA4D97-E9D1-470C-A5A9-4D48A76F84B2";// Models.User.GetClaimedIdentifierForUser(User.Identity.Name);
         }
 
         if (!authReq.IsDelegatedIdentifier)
@@ -292,8 +312,17 @@ namespace Shadow.UShadow.Controllers
           pendingRequest.AddResponseExtension(papeResponse);
         }
       }
-
       return openIdProvider.PrepareResponse(pendingRequest).AsActionResult();
+    }
+
+
+    [HttpPost]
+    public virtual JsonResult PushAuthorizationCode(Guid sessionId)
+    {
+      AuthenticationModel authModel = new AuthenticationModel();
+      authModel.Authorized(sessionId);
+
+      return Json(true);
     }
   }
 }

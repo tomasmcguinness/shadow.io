@@ -8,15 +8,15 @@ using System.Web.Mvc;
 namespace Shadow.UShadow.Controllers
 {
     [Authorize]
-    public class LocationsController : Controller
+  public partial class LocationsController : Controller
     {
-        public ActionResult Index()
+      public virtual ActionResult Index()
         {
             return View();
         }
 
         [OutputCache(Duration = 0)]
-        public JsonResult Locations()
+      public virtual JsonResult Locations()
         {
             LocationRepository resp = new LocationRepository();
             return Json(resp.Get(), JsonRequestBehavior.AllowGet);

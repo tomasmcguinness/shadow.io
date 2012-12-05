@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace Shadow.UShadow.Controllers
 {
-    public class ServicesController : Controller
+  public partial class ServicesController : Controller
     {
-        public ActionResult Index()
+    public virtual ActionResult Index()
         {
             return View();
         }

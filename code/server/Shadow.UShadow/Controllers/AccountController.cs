@@ -10,7 +10,7 @@ using System.Web.Security;
 
 namespace Shadow.UShadow.Controllers
 {
-    public class AccountController : Controller
+  public partial class AccountController : Controller
     {
         private AccountRepository respository;
 
@@ -19,19 +19,19 @@ namespace Shadow.UShadow.Controllers
             respository = new AccountRepository();
         }
 
-        public ActionResult User(string id)
+        public virtual ActionResult User(string id)
         {
             return View("xrds");
         }
 
-        public ActionResult Logon()
+        public virtual ActionResult Logon()
         {
             Guid sessionId = Guid.NewGuid();
             this.respository.Set(sessionId);
             return View(sessionId);
         }
 
-        public ActionResult Logout()
+        public virtual ActionResult Logout()
         {
             this.respository.Unauthorize();
             FormsAuthentication.SignOut();
@@ -39,7 +39,7 @@ namespace Shadow.UShadow.Controllers
         }
 
         [HttpPost]
-        public JsonResult CheckForAuthorization(Guid sessionId)
+        public virtual JsonResult CheckForAuthorization(Guid sessionId)
         {
             bool authorized = this.respository.IsAuthorized;
 
@@ -52,7 +52,7 @@ namespace Shadow.UShadow.Controllers
         }
 
         [HttpPost]
-        public JsonResult PushAuthorizationCode(Guid sessionId)
+        public virtual JsonResult PushAuthorizationCode(Guid sessionId)
         {
             if (this.respository.CurrentSessionId == sessionId)
             {

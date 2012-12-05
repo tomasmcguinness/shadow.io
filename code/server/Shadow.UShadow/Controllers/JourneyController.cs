@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace Shadow.UShadow.Controllers
 {
-    public class JourneyController : Controller
+  public partial class JourneyController : Controller
     {
-        public ActionResult Index()
+    public virtual ActionResult Index()
         {
             return View();
         }

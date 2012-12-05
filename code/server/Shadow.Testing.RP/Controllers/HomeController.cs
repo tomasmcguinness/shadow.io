@@ -12,6 +12,8 @@ namespace Shadow.Testing.RP.Controllers
   {
     public ActionResult Index()
     {
+      ViewData["Authenticated"] = "FALSE";
+
       using (OpenIdRelyingParty openid = new OpenIdRelyingParty())
       {
         var response = openid.GetResponse();
@@ -24,10 +26,10 @@ namespace Shadow.Testing.RP.Controllers
               ViewData["Authenticated"] = "TRUE";
               break;
             case AuthenticationStatus.Canceled:
-              //this.loginCanceledLabel.Visible = true;
+              ViewData["Authenticated"] = "Cancelled";
               break;
             case AuthenticationStatus.Failed:
-              //this.loginFailedLabel.Visible = true;
+              ViewData["Authenticated"] = "FAILED";
               break;
           }
         }

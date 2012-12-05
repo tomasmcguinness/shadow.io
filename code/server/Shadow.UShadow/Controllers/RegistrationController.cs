@@ -7,15 +7,15 @@ using Twilio;
 
 namespace Shadow.UShadow.Controllers
 {
-    public class RegistrationController : Controller
+  public partial class RegistrationController : Controller
     {
-        public ActionResult Index()
+    public virtual ActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Index(string mobileNumber)
+    public virtual ActionResult Index(string mobileNumber)
         {
             var twilio = new TwilioRestClient("ACb6efc5176b4649e9a49251ea9ca9c7b8", "18731aa1b2fefd01034cb4815bbf3c64");
 
@@ -29,7 +29,7 @@ namespace Shadow.UShadow.Controllers
             return View();
         }
 
-        public ActionResult Redirect(Guid code)
+        public virtual ActionResult Redirect(Guid code)
         {
             return Redirect("ushadow://ushadow.azurewebsites.net?code=" + code);
         }
