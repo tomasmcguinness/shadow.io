@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ApproveAccessViewController : UITableViewController
+@interface AuthorizationViewController : UITableViewController
 
 @end

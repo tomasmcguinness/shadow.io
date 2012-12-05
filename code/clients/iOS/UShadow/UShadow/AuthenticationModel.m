@@ -10,6 +10,16 @@
 
 @implementation AuthenticationModel
 
+- (void)processAuthenticationCode:(NSString *)authenticationCode
+{
+    [self.delegate promptForAuthorization:@"http://www.stackoverflow.com"];
+}
+
+- (void)sendAuthorization:(NSString *)session
+{
+    
+}
+
 - (void)sendAuthenticationCode:(NSString *)detectedCode
 {
     NSString *url = [NSString stringWithFormat:@"http://ushadow.azurewebsites.net/account/pushauthorizationcode?sessionId=%@", detectedCode];

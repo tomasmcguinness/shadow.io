@@ -23,6 +23,7 @@
     if (self)
     {
         self.model = [[AuthenticationModel alloc] init];
+        self.model.delegate = self;
     }
     
     return self;
@@ -32,12 +33,17 @@
 {
     [super viewDidLoad];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(10, 100, 300, 50);
-    button.titleLabel.text = @"Authenticate";
-    button.titleLabel.textColor  = [UIColor redColor];
-    [button addTarget:self action:@selector(launchQRReader) forControlEvents:UIControlEventAllTouchEvents];
-    [self.view addSubview:button];
+    //UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //button.frame = CGRectMake(10, 100, 300, 50);
+    //button.titleLabel.text = @"Authenticate";
+    //button.titleLabel.textColor  = [UIColor redColor];
+    //[button addTarget:self action:@selector(launchQRReader) forControlEvents:UIControlEventAllTouchEvents];
+    //[self.view addSubview:button];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self launchQRReader];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +62,12 @@
     [self presentViewController:reader animated:YES completion:nil];
 }
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)reader
+{
+    self.tabBarController.selectedIndex = 0;
+    [reader dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void) imagePickerController: (UIImagePickerController *)reader didFinishPickingMediaWithInfo: (NSDictionary *) info
 {
     NSLog(@"Authorization code detected");
@@ -69,9 +81,29 @@
     
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     
-    [self.model sendAuthenticationCode:textFromCode];
+    [self.model processAuthenticationCode:textFromCode];
+    
+    self.tabBarController.selectedIndex = 0;
     
     [reader dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - AuthenticationModelDelegate
+
+- (void)promptForAuthorization:(NSString *)realm
+{
+    
+}
+
+- (void)authorizationSent
+{
+    
+}
+
+- (void)authorizationFailed
+{
+    
 }
 
 @end

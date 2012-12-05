@@ -40,7 +40,7 @@
     UINavigationController *authNavCon = [[UINavigationController alloc] initWithRootViewController:authenticateController];
     authNavCon.tabBarItem.title = @"Authenticate";
     
-    AccountsViewController *accountsController = [[AccountsViewController alloc] init];
+    AccountsViewController *accountsController = [[AccountsViewController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController *accsNavCon = [[UINavigationController alloc] initWithRootViewController:accountsController];
     accsNavCon.tabBarItem.title = @"Accounts";
     
