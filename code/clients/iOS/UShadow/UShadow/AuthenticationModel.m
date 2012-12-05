@@ -12,12 +12,21 @@
 
 - (void)processAuthenticationCode:(NSString *)authenticationCode
 {
-    [self.delegate promptForAuthorization:@"http://www.stackoverflow.com"];
+    // Split the code. It should be <Session>|<Realm>
+    NSArray *codeParts = [authenticationCode componentsSeparatedByString:@"|"];
+    
+    NSLog(@"SessionId: %@", [codeParts objectAtIndex:0]);
+    NSLog(@"Realm: %@", [codeParts objectAtIndex:1]);
+    
+    [self.delegate promptForAuthorization:[codeParts objectAtIndex:1]];
 }
 
 - (void)sendAuthorization:(NSString *)session
 {
+    //NSString *url = [NSString stringWithFormat:@"http://ushadow.azurewebsites.net/account/pushauthorizationcode?sessionId=%@", detectedCode];
     
+    //NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    //[request setHTTPMethod:@"POST"];
 }
 
 - (void)sendAuthenticationCode:(NSString *)detectedCode

@@ -329,16 +329,16 @@
 		2C2F6CDC160A30DD000E261B /* UShadow */ = {
 			isa = PBXGroup;
 			children = (
-				2C164B3E163924E7006CCF7D /* Models */,
-				2C10EC191635BCD800DEFEBD /* ViewControllers */,
 				2C2F6CE5160A30DD000E261B /* AppDelegate.h */,
 				2C2F6CE6160A30DD000E261B /* AppDelegate.m */,
 				2CA0B4FE16313F7B008AB5E5 /* LocationManager.h */,
 				2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */,
+				2C164B3E163924E7006CCF7D /* Models */,
 				2C2F6CDD160A30DD000E261B /* Supporting Files */,
-				2C2F6CEE160A30DD000E261B /* UShadow.xcdatamodeld */,
 				2C414062163C1CC5009B59F6 /* TaggedNSURLConnection.h */,
 				2C414063163C1CC6009B59F6 /* TaggedNSURLConnection.m */,
+				2C2F6CEE160A30DD000E261B /* UShadow.xcdatamodeld */,
+				2C10EC191635BCD800DEFEBD /* ViewControllers */,
 			);
 			path = UShadow;
 			sourceTree = "<group>";

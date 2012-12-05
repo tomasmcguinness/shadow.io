@@ -64,8 +64,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)reader
 {
-    self.tabBarController.selectedIndex = 0;
-    [reader dismissViewControllerAnimated:YES completion:nil];
+    [self dismissCamera:reader];
 }
 
 - (void) imagePickerController: (UIImagePickerController *)reader didFinishPickingMediaWithInfo: (NSDictionary *) info
@@ -83,8 +82,14 @@
     
     [self.model processAuthenticationCode:textFromCode];
     
+    [self dismissCamera:reader];
+}
+
+- (void)dismissCamera:(UIImagePickerController *)reader
+{
+    // When the user cancels, be sure to send the tab back to 0 otherwise the open/close of the picker will
+    // be stuck in a loop.
     self.tabBarController.selectedIndex = 0;
-    
     [reader dismissViewControllerAnimated:YES completion:nil];
 }
 
