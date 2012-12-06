@@ -7,6 +7,7 @@
 //
 
 #import "AuthorizationViewController.h"
+#import "AppDelegate.h"
 
 @implementation AuthorizationViewController
 
@@ -17,6 +18,17 @@
         // Custom initialization
     }
     return self;
+}
+
+- (NSManagedObjectContext *) managedObjectContext
+{
+    if (managedObjectContext != nil)
+    {
+        return managedObjectContext;
+    }
+	
+	managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+	return managedObjectContext;
 }
 
 - (void)viewDidLoad

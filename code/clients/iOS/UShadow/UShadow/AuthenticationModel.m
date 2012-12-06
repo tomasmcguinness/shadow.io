@@ -10,7 +10,19 @@
 
 @implementation AuthenticationModel
 
-- (void)processAuthenticationCode:(NSString *)authenticationCode
+- (id)init
+{
+    self = [super init];
+    
+    if(self)
+    {
+        self.authorizationModel = [[AuthorizationModel alloc] init];
+    }
+    
+    return self;
+}
+
+- (void)processAuthenticationCode:(NSString *)authenticationCode managedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     // Split the code. It should be <Session>|<Realm>
     NSArray *codeParts = [authenticationCode componentsSeparatedByString:@"|"];
@@ -21,15 +33,50 @@
     [self.delegate promptForAuthorization:[codeParts objectAtIndex:1]];
 }
 
-- (void)sendAuthorization:(NSString *)session
+- (void)sendAuthorization:(NSString *)session realm:(NSString *)realm managedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
-    //NSString *url = [NSString stringWithFormat:@"http://ushadow.azurewebsites.net/account/pushauthorizationcode?sessionId=%@", detectedCode];
+    // See if authorization already exists
+    Authorization *authorizationToken = [self.authorizationModel getAuthorizationForRealm:realm];
     
-    //NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-    //[request setHTTPMethod:@"POST"];
+    if(authorizationToken == nil)
+    {
+        authorizationToken = [self.authorizationModel addAuthorizationForRealm:realm];
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"http://ushadow.azurewebsites.net/openId/pushauthorizationcode?sessionId=%@", session];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    NSData *body = [authorizationToken.identifier dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPBody:body];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         [queue release];
+         NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
+         
+         if(error)
+         {
+             NSLog(@"Error getting response: %@", [error localizedDescription]);
+         }
+         else
+         {
+             if(httpResp.statusCode == 200)
+             {
+                 NSLog(@"Successfully pushed the authorization code");
+             }
+             else
+             {
+                 NSLog(@"Eror pushing authorization code");
+             }
+         }
+     }];
 }
 
-- (void)sendAuthenticationCode:(NSString *)detectedCode
+- (void)sendAuthenticationCode:(NSString *)detectedCode managedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     NSString *url = [NSString stringWithFormat:@"http://ushadow.azurewebsites.net/account/pushauthorizationcode?sessionId=%@", detectedCode];
     

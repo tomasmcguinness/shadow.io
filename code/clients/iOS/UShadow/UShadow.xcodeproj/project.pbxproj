@@ -47,6 +47,8 @@
 		2C41406A163C526F009B59F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C414069163C526F009B59F6 /* Security.framework */; };
 		2C9EE848164000F9005DB2E2 /* Roomr3-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9EE847164000F9005DB2E2 /* Roomr3-57.png */; };
 		2C9EE84A16400125005DB2E2 /* Roomr3-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C9EE84916400125005DB2E2 /* Roomr3-114.png */; };
+		2CA02660167090C8006B22E0 /* Authorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0265F167090C8006B22E0 /* Authorization.m */; };
+		2CA026641670910E006B22E0 /* AuthorizationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA026631670910E006B22E0 /* AuthorizationModel.m */; };
 		2CA0B50016313F7B008AB5E5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */; };
 		2CA0B50316314016008AB5E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA0B50216314016008AB5E5 /* CoreLocation.framework */; };
 		2CBAE6BA1639AC4700B4AAB9 /* BondingProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAE6B91639AC4700B4AAB9 /* BondingProgressViewController.m */; };
@@ -136,6 +138,10 @@
 		2C414069163C526F009B59F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2C9EE847164000F9005DB2E2 /* Roomr3-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Roomr3-57.png"; path = "../../../../../QuickMeeting/iPhone/Icons/Roomr3-57.png"; sourceTree = "<group>"; };
 		2C9EE84916400125005DB2E2 /* Roomr3-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Roomr3-114.png"; path = "../../../../../QuickMeeting/iPhone/Icons/Roomr3-114.png"; sourceTree = "<group>"; };
+		2CA0265E167090C8006B22E0 /* Authorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Authorization.h; sourceTree = "<group>"; };
+		2CA0265F167090C8006B22E0 /* Authorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Authorization.m; sourceTree = "<group>"; };
+		2CA026621670910E006B22E0 /* AuthorizationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationModel.h; sourceTree = "<group>"; };
+		2CA026631670910E006B22E0 /* AuthorizationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationModel.m; sourceTree = "<group>"; };
 		2CA09A8516426FC20090F743 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		2CA0B4FE16313F7B008AB5E5 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		2CA0B4FF16313F7B008AB5E5 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
@@ -275,6 +281,8 @@
 			children = (
 				2C414066163C4DB0009B59F6 /* AuthenticationModel.h */,
 				2C414067163C4DB0009B59F6 /* AuthenticationModel.m */,
+				2CA026621670910E006B22E0 /* AuthorizationModel.h */,
+				2CA026631670910E006B22E0 /* AuthorizationModel.m */,
 				2C164B3F16392500006CCF7D /* BondingModel.h */,
 				2C164B4016392500006CCF7D /* BondingModel.m */,
 			);
@@ -329,6 +337,7 @@
 		2C2F6CDC160A30DD000E261B /* UShadow */ = {
 			isa = PBXGroup;
 			children = (
+				2CA02661167090D6006B22E0 /* Entities */,
 				2C2F6CE5160A30DD000E261B /* AppDelegate.h */,
 				2C2F6CE6160A30DD000E261B /* AppDelegate.m */,
 				2CA0B4FE16313F7B008AB5E5 /* LocationManager.h */,
@@ -374,6 +383,15 @@
 				2C2F6D01160A30DD000E261B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CA02661167090D6006B22E0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2CA0265E167090C8006B22E0 /* Authorization.h */,
+				2CA0265F167090C8006B22E0 /* Authorization.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,6 +523,8 @@
 				2C414068163C4DB0009B59F6 /* AuthenticationModel.m in Sources */,
 				2CBCB2C4166DE24D00B11096 /* AccountsViewController.m in Sources */,
 				2CBCB2C8166DE36900B11096 /* AuthorizationViewController.m in Sources */,
+				2CA02660167090C8006B22E0 /* Authorization.m in Sources */,
+				2CA026641670910E006B22E0 /* AuthorizationModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

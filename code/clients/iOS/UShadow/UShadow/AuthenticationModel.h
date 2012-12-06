@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AuthorizationModel.h"
 
 @protocol AuthenticationModelDelegate <NSObject>
 
@@ -18,10 +19,11 @@
 
 @interface AuthenticationModel : NSObject
 
-- (void)sendAuthenticationCode:(NSString *)detectedCode;
-- (void)sendAuthorization:(NSString *)session;
-- (void)processAuthenticationCode:(NSString *)authenticationCode;
+- (void)sendAuthenticationCode:(NSString *)detectedCode managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+//- (void)sendAuthorization:(NSString *)session managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+- (void)processAuthenticationCode:(NSString *)authenticationCode managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @property (strong, nonatomic) id<AuthenticationModelDelegate> delegate;
+@property (strong, nonatomic) AuthorizationModel *authorizationModel;
 
 @end

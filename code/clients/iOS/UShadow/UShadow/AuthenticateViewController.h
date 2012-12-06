@@ -13,7 +13,11 @@
 #import "AuthorizationViewController.h"
 
 @interface AuthenticateViewController : UIViewController<ZBarReaderDelegate, AuthenticationModelDelegate>
+{
+    NSManagedObjectContext *managedObjectContext;
+}
 
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) AuthenticationModel *model;
 
 @end

@@ -7,10 +7,7 @@
 //
 
 #import "AuthenticateViewController.h"
-
-@interface AuthenticateViewController ()
-
-@end
+#import "AppDelegate.h"
 
 @implementation AuthenticateViewController
 
@@ -29,16 +26,20 @@
     return self;
 }
 
+- (NSManagedObjectContext *) managedObjectContext
+{
+    if (managedObjectContext != nil)
+    {
+        return managedObjectContext;
+    }
+	
+	managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+	return managedObjectContext;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    //button.frame = CGRectMake(10, 100, 300, 50);
-    //button.titleLabel.text = @"Authenticate";
-    //button.titleLabel.textColor  = [UIColor redColor];
-    //[button addTarget:self action:@selector(launchQRReader) forControlEvents:UIControlEventAllTouchEvents];
-    //[self.view addSubview:button];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -80,7 +81,7 @@
     
     AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     
-    [self.model processAuthenticationCode:textFromCode];
+    [self.model processAuthenticationCode:textFromCode managedObjectContext:self.managedObjectContext];
     
     [self dismissCamera:reader];
 }
@@ -98,7 +99,9 @@
 
 - (void)promptForAuthorization:(NSString *)realm
 {
-    
+    AuthorizationViewController *authViewController = [[AuthorizationViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:authViewController];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)authorizationSent

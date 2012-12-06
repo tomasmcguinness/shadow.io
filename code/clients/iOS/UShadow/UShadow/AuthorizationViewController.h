@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AuthorizationViewController : UITableViewController
+{
+    NSManagedObjectContext *managedObjectContext;
+}
+
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 @end
